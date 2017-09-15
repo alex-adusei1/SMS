@@ -72,7 +72,7 @@
                 </a>
               </li>
               <li>
-                <a href="dashboard.html" class="b-danger" title="Class Rooms">
+                <a href="{{ url('/classroom') }}" class="b-danger" title="Class Rooms">
                   <span class="nav-icon text-white no-fade">
                     <i class="ion-ios-home"></i>
                   </span>

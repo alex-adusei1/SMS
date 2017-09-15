@@ -21,3 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/student',function(){
     return "Student";
 });
+
+Route::get('/classroom', function(){
+    return "classroom";
+});
