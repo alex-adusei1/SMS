@@ -24,6 +24,8 @@ use AuthenticatesUsers;
      *
      * @var string
      */
+     
+    protected $username = "name";
     protected $redirectTo = '/home';
 
     /**
@@ -35,8 +37,8 @@ use AuthenticatesUsers;
         $this->middleware('guest')->except('logout');
     }
 
-    public function username() {
-        return 'username';
-    }
+//    public function username() {
+//        return 'username';
+//    }
 
 }
