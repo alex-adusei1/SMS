@@ -38,7 +38,7 @@
   <!-- endbuild -->
   <link rel="stylesheet" href="{{ asset('css/styles/font.css')}}" type="text/css" />
 </head>
-<body style="background-image: url(http://localhost/sms/public/images/bg/grads.jpg);
+<body style="background-image: url(http://localhost/sms/public/image/bg/grads.jpg);
 background-repeat: no-repeat; background-position: center">
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
@@ -102,6 +102,7 @@ background-repeat: no-repeat; background-position: center">
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/screenfull.min.js') }}"></script>
 
 <!-- build:js scripts/app.min.js -->
 <!-- jQuery -->
@@ -115,6 +116,8 @@ background-repeat: no-repeat; background-position: center">
   <script src="{{ asset('libs/jquery-pjax/jquery.pjax.js') }}"></script>
   <script src="{{ asset('libs/blockUI/jquery.blockUI.js') }}"></script>
   <script src="{{ asset('libs/jscroll/jquery.jscroll.min.js') }}"></script>
+  {{-- <script src="{{ asset('libs/screenfull/dist/screenfull.min.js') }}"></script> --}}
+
 
   <script src="{{ asset('scripts/config.lazyload.js') }}"></script>
   <script src="{{ asset('scripts/ui-load.js') }}"></script>
@@ -131,6 +134,5 @@ background-repeat: no-repeat; background-position: center">
   <script src="{{ asset('scripts/ui-taburl.js') }}"></script>
   <script src="{{ asset('scripts/app.js') }}"></script>
   <script src="{{ asset('scripts/ajax.js') }}"></script>
-
 </body>
 </html>

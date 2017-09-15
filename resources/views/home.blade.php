@@ -15,8 +15,8 @@
       <div class="navbar no-radius">
         <!-- brand -->
         <a href="index.html" class="navbar-brand">
-          <div data-ui-include="'images/logo.svg'"></div>
-          <img src="images/logo.png" alt="." class="hide">
+          <div data-ui-include="{{asset('images/logo.svg')}}"></div>
+          <img src="{{asset('images/logo.png')}}" alt="." class="hide">
           <span class="hidden-folded inline">aside</span>
         </a>
         <!-- / brand -->
@@ -426,7 +426,7 @@
           <a data-toggle="dropdown">
               <div class="pull-left">
                 <div class="inline"><span class="avatar w-40 grey">JR</span></div>
-                <img src="images/a0.jpg" alt="..." class="w-40 img-circle hide">
+                <img src="{{asset('images/a0.jpg')}}" alt="..." class="w-40 img-circle hide">
               </div>
               <div class="clear hidden-folded p-x">
                 <span class="block _500 text-muted">Jean Reyes</span>
@@ -501,7 +501,7 @@
                           <ul class="list-group list-group-gap m-a-0">
                             <li class="list-group-item dark-white box-shadow-z0 b">
                               <span class="pull-left m-r">
-                                <img src="images/a0.jpg" alt="..." class="w-40 img-circle">
+                                <img src="{{asset('images/a0.jpg')}}" alt="..." class="w-40 img-circle">
                               </span>
                               <span class="clear block">
                                 Use awesome <a href="#" class="text-primary">animate.css</a><br>
@@ -510,7 +510,7 @@
                             </li>
                             <li class="list-group-item dark-white box-shadow-z0 b">
                               <span class="pull-left m-r">
-                                <img src="images/a1.jpg" alt="..." class="w-40 img-circle">
+                                <img src="{{asset('images/a1.jpg')}}" alt="..." class="w-40 img-circle">
                               </span>
                               <span class="clear block">
                                 <a href="#" class="text-primary">Joe</a> Added you as friend<br>
@@ -519,7 +519,7 @@
                             </li>
                             <li class="list-group-item dark-white text-color box-shadow-z0 b">
                               <span class="pull-left m-r">
-                                <img src="images/a2.jpg" alt="..." class="w-40 img-circle">
+                                <img src="{{asset('images/a2.jpg')}}" alt="..." class="w-40 img-circle">
                               </span>
                               <span class="clear block">
                                 <a href="#" class="text-primary">Danie</a> sent you a message<br>
@@ -534,7 +534,7 @@
                   <li class="nav-item dropdown">
                     <a class="nav-link clear" data-toggle="dropdown">
                       <span class="avatar w-32">
-                        <img src="images/a3.jpg" class="w-full rounded" alt="...">
+                        <img src="{{asset('images/a3.jpg')}}" class="w-full rounded" alt="...">
                       </span>
                     </a>
                     <div class="dropdown-menu w dropdown-menu-scale pull-right">
@@ -1235,28 +1235,28 @@
             </div>
             <ul class="list-group no-border m-b">
                   <li class="list-group-item">
-                    <a href="#" class="pull-left w-40 m-r"><img src="images/a8.jpg" class="img-responsive img-circle" alt="."></a>
+                    <a href="#" class="pull-left w-40 m-r"><img src="{{asset('images/a8.jpg')}}" class="img-responsive img-circle" alt="."></a>
                     <div class="clear">
                       <a href="#" class="_500 block">Jonathan Doe</a>
                       <span class="text-muted text-ellipsis">Lorem ipsum dolor sit amet, consectetur adipiscing elit</span>
                     </div>
                   </li>
                   <li class="list-group-item">
-                    <a href="" class="pull-left w-40 m-r"><img src="images/a2.jpg" class="img-responsive img-circle" alt="."></a>
+                    <a href="" class="pull-left w-40 m-r"><img src="{{asset('images/a2.jpg')}}" class="img-responsive img-circle" alt="."></a>
                     <div class="clear">
                       <a href="#" class="_500 block">Jack Michale</a>
                       <span class="text-muted text-ellipsis">Sectetur adipiscing elit</span>
                     </div>
                   </li>
                   <li class="list-group-item">
-                    <a href="" class="pull-left w-40 m-r"><img src="images/a3.jpg" class="img-responsive img-circle" alt="."></a>
+                    <a href="" class="pull-left w-40 m-r"><img src="{{asset('images/a3.jpg')}}" class="img-responsive img-circle" alt="."></a>
                     <div class="clear">
                       <a href="#" class="_500 block">Jessi</a>
                       <span class="text-muted text-ellipsis">Sectetur adipiscing elit</span>
                     </div>
                   </li>
                   <li class="list-group-item">
-                    <a href="" class="pull-left w-40 m-r"><img src="images/a4.jpg" class="img-responsive img-circle" alt="."></a>
+                    <a href="" class="pull-left w-40 m-r"><img src="{{asset('images/a4.jpg')}}" class="img-responsive img-circle" alt="."></a>
                     <div class="clear">
                       <a href="#" class="_500 block">Sodake</a>
                       <span class="text-muted text-ellipsis">Vestibulum ullamcorper sodales nisi nec condimentum</span>
@@ -1305,7 +1305,7 @@
                 <span class="list-left">
                   <span class="avatar">
                     <i class="on avatar-center no-border"></i>
-                      <img src="images/a1.jpg" class="w-20" alt=".">
+                      <img src="{{asset('images/a1.jpg')}}" class="w-20" alt=".">
                     </span>
                 </span>
                 <span class="list-body text-ellipsis">
@@ -1316,7 +1316,7 @@
                 <span class="list-left">
                   <span class="avatar">
                     <i class="on avatar-center no-border"></i>
-                      <img src="images/a2.jpg" class="w-20" alt=".">
+                      <img src="{{asset('images/a2.jpg')}}" class="w-20" alt=".">
                     </span>
                 </span>
                 <span class="list-body text-ellipsis">
@@ -1327,7 +1327,7 @@
                 <span class="list-left">
                   <span class="avatar">
                     <i class="on avatar-center no-border"></i>
-                      <img src="images/a3.jpg" class="w-20" alt=".">
+                      <img src="{{asset('images/a3.jpg')}}" class="w-20" alt=".">
                     </span>
                 </span>
                 <span class="list-body text-ellipsis">
@@ -1338,7 +1338,7 @@
                 <span class="list-left">
                   <span class="avatar">
                     <i class="away avatar-center no-border"></i>
-                      <img src="images/a4.jpg" class="w-20" alt=".">
+                      <img src="{{asset('images/a4.jpg')}}" class="w-20" alt=".">
                     </span>
                 </span>
                 <span class="list-body text-ellipsis">
@@ -1349,7 +1349,7 @@
                 <span class="list-left">
                   <span class="avatar">
                     <i class="off avatar-center no-border"></i>
-                      <img src="images/a5.jpg" class="w-20" alt=".">
+                      <img src="{{asset('images/a5.jpg')}}" class="w-20" alt=".">
                     </span>
                 </span>
                 <span class="list-body text-ellipsis">
@@ -1414,7 +1414,7 @@
             <div class="row-inner">
               <div class="p-a-md">
                 <div class="m-b">
-                  <a href="#" class="pull-left w-40 m-r-sm"><img src="images/a2.jpg" alt="..." class="w-full img-circle"></a>
+                  <a href="#" class="pull-left w-40 m-r-sm"><img src="{{asset('images/a2.jpg')}}" alt="..." class="w-full img-circle"></a>
                   <div class="clear">
                     <div class="p-a p-y-sm dark-white inline r">
                       Hi John, What's up...
@@ -1423,7 +1423,7 @@
                   </div>
                 </div>
                 <div class="m-b">
-                  <a href="#" class="pull-right w-40 m-l-sm"><img src="images/a3.jpg" class="w-full img-circle" alt="..."></a>
+                  <a href="#" class="pull-right w-40 m-l-sm"><img src="{{asset('images/a3.jpg')}}" class="w-full img-circle" alt="..."></a>
                   <div class="clear text-right">
                     <div class="p-a p-y-sm success inline text-left r">
                       Lorem ipsum dolor soe rooke..
@@ -1432,7 +1432,7 @@
                   </div>
                 </div>
                 <div class="m-b">
-                  <a href="#" class="pull-left w-40 m-r-sm"><img src="images/a2.jpg" alt="..." class="w-full img-circle"></a>
+                  <a href="#" class="pull-left w-40 m-r-sm"><img src="{{asset('images/a2.jpg')}}" alt="..." class="w-full img-circle"></a>
                   <div class="clear">
                     <div class="p-a p-y-sm dark-white inline r">
                       Good!
@@ -1441,7 +1441,7 @@
                   </div>
                 </div>
                 <div class="m-b">
-                  <a href="#" class="pull-right w-40 m-l-sm"><img src="images/a3.jpg" class="w-full img-circle" alt="..."></a>
+                  <a href="#" class="pull-right w-40 m-l-sm"><img src="{{asset('images/a3.jpg')}}" class="w-full img-circle" alt="..."></a>
                   <div class="clear text-right">
                     <div class="p-a p-y-sm success inline text-left r">
                       Dlor soe isep..
