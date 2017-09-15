@@ -674,7 +674,7 @@
             <span class="text-muted l-h-1x"><i class="ion-cash text-muted"></i></span>
           </div>
           <div class="text-center">
-            <h2 class="text-center _600">Ghs80000</h2>
+            <h2 class="text-center _600">Ghs80,000</h2>
             <p class="text-muted m-b-md">Total Fees Paid</p>
             <div>
               <span data-ui-jp="sparkline" data-ui-options="[9,2,5,5,7,4,4,3,2,2], {type:'line', height:20, width: '60', lineWidth:1, valueSpots:{'0:':'#818a91'}, lineColor:'#818a91', spotColor:'#818a91', fillColor:'', highlightLineColor:'rgba(120,130,140,0.3)', spotRadius:0}" class="sparkline inline"></span>
@@ -700,11 +700,11 @@
         </div>
     <div class="padding">
       <div class="row">
-          <div class="col-sm-4">
+          <div class="col-sm-6">
               <div class="box">
                 <div class="box-header">
-                  <h3>Marketing</h3>
-                  <small>A general overview of your sales</small>
+                  <h3>Student Perfomance</h3>
+                  <small>A general overview of your students performace</small>
                 </div>
                 <div class="box-tool">
                 <ul class="nav">
@@ -718,11 +718,12 @@
                       <i class="ion-android-menu m-x-xs"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-scale pull-right">
-                      <a class="dropdown-item" href="#">This week</a>
-                      <a class="dropdown-item" href="#">This month</a>
-                      <a class="dropdown-item" href="#">This week</a>
+                      {{-- pull classess here --}}
+                      <a class="dropdown-item" href="#">JHS 3</a>
+                      <a class="dropdown-item" href="#">JHS 2</a>
+                      <a class="dropdown-item" href="#">JHS 1</a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item">Today</a>
+                      <a class="dropdown-item">P 6</a>
                     </div>
                   </li>
                 </ul>
@@ -781,15 +782,16 @@
                 </div>
                 <div class="box-body info text-center p-b-md">
                   <span class="dark-white rounded m-r p-x p-y-xs text-info"><i class="fa fa-caret-up"></i> 20%</span>
-                  <span>Over last Month</span>
+                  {{-- either increase or decrease  --}}
+                  <span>Increase</span>
                 </div>
               </div>
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-6">
             <div class="box">
                 <div class="box-header">
-                  <h3>Orders</h3>
-                  <small>Calculated in last 30 days</small>
+                  <h3>Payment Performance</h3>
+                  <small>A general overview of your payment performace</small>
                 </div>
                 <div class="box-tool">
                 <ul class="nav">
@@ -870,7 +872,7 @@
                 </div>
               </div>
           </div>
-          <div class="col-sm-4">
+          {{-- <div class="col-sm-4">
             <div class="box">
                 <div class="box-header">
                   <h3>Deposit</h3>
@@ -954,10 +956,10 @@
                   <span>Over last Month</span>
                 </div>
               </div>
-          </div>
+          </div> --}}
       </div>
 
-          <div class="box">
+          {{-- <div class="box">
             <div class="box-header b-b">
               <h3>System status</h3>
             </div>
@@ -1090,7 +1092,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> --}}
       {{-- <div class="row">
           <div class="col-sm-6">
               <div class="box">
