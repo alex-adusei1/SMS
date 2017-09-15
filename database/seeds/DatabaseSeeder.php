@@ -12,6 +12,14 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 //         $this->call(UsersTableSeeder::class);
+        
+        //seeder for user_type
+        DB::table('user_types')->insert([
+            'name' => 'admin'
+        ]);
+        
+        
+        //seeder for users
         DB::table('users')->insert([
             'username' => 'admin',
             'email' => 'admin@gmail.com',
@@ -21,6 +29,7 @@ class DatabaseSeeder extends Seeder
             'city'=>'dansoman', 
             'place_of_birth'=>'accra',
             'tribe'=>'Ga',
+            'user_type_id'=>1
         ]);
     }
 }
