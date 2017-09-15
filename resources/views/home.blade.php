@@ -16,7 +16,7 @@
         <!-- brand -->
         <a href="index.html" class="navbar-brand">
           <div data-ui-include="{{asset('images/logo.svg')}}"></div>
-          <img src="{{asset('images/logo.png')}}" alt="." class="hide">
+          <img src="{{asset('images/logo1.png')}}" alt="." class="hide">
           <span class="hidden-folded inline">aside</span>
         </a>
         <!-- / brand -->
@@ -29,15 +29,15 @@
                 <span class="text-xs">Main</span>
               </li>
               <li>
-                <a href="dashboard.html" class="b-danger">
+                <a href="dashboard.html" class="b-danger" title="Dashboard">
                   <span class="nav-icon text-white no-fade">
                     <i class="ion-filing"></i>
                   </span>
-                  <span class="nav-text">Dashboard</span>
+                  <span class="nav-text" alt="Dashboard">Dashboard</span>
                 </a>
               </li>
               <li>
-                <a href="app.project.html" class="b-success">
+                <a href="app.project.html" class="b-success" title="Projects">
                   <span class="nav-icon text-white no-fade">
                     <i class="ion-android-apps"></i>
                   </span>
@@ -45,15 +45,70 @@
                 </a>
               </li>
               <li>
-                <a href="app.inbox.html" class="b-info">
+                <a href="app.inbox.html" class="b-info" title="Mail">
                   <span class="nav-icon text-white no-fade">
                     <i class="ion-email"></i>
                   </span>
                   <span class="nav-text">Inbox</span>
                 </a>
               </li>
+
               <li>
-                <a href="app.message.html" class="b-default">
+                <a href="dashboard.html" class="b-warning" title="Students">
+                  <span class="nav-icon text-white no-fade">
+                    <i class="ion-university"></i>
+                    {{-- ion-ios-book --}}
+                  </span>
+                  <span class="nav-text">Students</span>
+                </a>
+              </li>
+
+              <li>
+                <a href="dashboard.html" class="b-primary" title="Teachers">
+                  <span class="nav-icon text-white no-fade">
+                    <i class="ion-ios-people"></i>
+                  </span>
+                  <span class="nav-text">Teachers</span>
+                </a>
+              </li>
+              <li>
+                <a href="dashboard.html" class="b-danger" title="Class Rooms">
+                  <span class="nav-icon text-white no-fade">
+                    <i class="ion-ios-home"></i>
+                  </span>
+                  <span class="nav-text">Class Rooms</span>
+                </a>
+              </li>
+
+              <li>
+                <a href="dashboard.html" class="b-info">
+                  <span class="nav-icon text-white no-fade">
+                    <i class="ion-ios-list"></i>
+                  </span>
+                  <span class="nav-text">Report System</span>
+                </a>
+              </li>
+
+              <li>
+                <a href="dashboard.html" class="b-warning">
+                  <span class="nav-icon text-white no-fade">
+                    <i class="ion-ios-paperplane"></i>
+                  </span>
+                  <span class="nav-text">Promotional System</span>
+                </a>
+              </li>
+
+              <li>
+                <a href="dashboard.html" class="b-info">
+                  <span class="nav-icon text-white no-fade">
+                    <i class="ion-cash"></i>
+                  </span>
+                  <span class="nav-text">Finance</span>
+                </a>
+              </li>
+
+              <li>
+                <a href="app.message.html" class="b-default" title="Messaging">
                   <span class="nav-label">
                     <b class="label label-xs rounded danger"></b>
                   </span>
@@ -63,14 +118,25 @@
                   <span class="nav-text">Messages</span>
                 </a>
               </li>
+
               <li>
-                <a href="app.contact.html" class="b-default">
+                <a href="app.contact.html" class="b-default" title="Contact">
                   <span class="nav-icon">
                     <i class="ion-person"></i>
                   </span>
                   <span class="nav-text">Contacts</span>
                 </a>
               </li>
+
+              <li>
+                <a href="dashboard.html" class="b-default" title="Settings">
+                  <span class="nav-icon text-white no-fade">
+                    <i class="ion-ios-settings-strong"></i>
+                  </span>
+                  <span class="nav-text">Settings</span>
+                </a>
+              </li>
+
 
               <li class="nav-header hidden-folded m-t">
                 <span class="text-xs">UI Elements</span>
@@ -575,11 +641,11 @@
         <div class="padding">
           <div>
             <span class="pull-right"><i class="fa fa-caret-up text-primary m-y-xs"></i></span>
-            <span class="text-muted l-h-1x"><i class="ion-ios-grid-view text-muted"></i></span>
+            <span class="text-muted l-h-1x"><i class="ion-university text-muted"></i></span>
           </div>
           <div class="text-center">
-            <h2 class="text-center _600">45</h2>
-            <p class="text-muted m-b-md">New Projects</p>
+            <h2 class="text-center _600">851</h2>
+            <p class="text-muted m-b-md">Total Students</p>
             <div>
               <span data-ui-jp="sparkline" data-ui-options="[2,3,2,2,1,3,6,3,2,1], {type:'line', height:20, width: '60', lineWidth:1, valueSpots:{'0:':'#818a91'}, lineColor:'#818a91', spotColor:'#818a91', fillColor:'', highlightLineColor:'rgba(120,130,140,0.3)', spotRadius:0}" class="sparkline inline"></span>
             </div>
@@ -590,11 +656,11 @@
         <div class="padding">
           <div>
             <span class="pull-right"><i class="fa fa-caret-up text-primary m-y-xs"></i></span>
-            <span class="text-muted l-h-1x"><i class="ion-document text-muted"></i></span>
+            <span class="text-muted l-h-1x"><i class="ion-android-people text-muted"></i></span>
           </div>
           <div class="text-center">
             <h2 class="text-center _600">219</h2>
-            <p class="text-muted m-b-md">New Invoices</p>
+            <p class="text-muted m-b-md">Total Teachers</p>
             <div>
               <span data-ui-jp="sparkline" data-ui-options="[1,1,0,2,3,4,2,1,2,2], {type:'line', height:20, width: '60', lineWidth:1, valueSpots:{'0:':'#818a91'}, lineColor:'#818a91', spotColor:'#818a91', fillColor:'', highlightLineColor:'rgba(120,130,140,0.3)', spotRadius:0}" class="sparkline inline"></span>
             </div>
@@ -605,11 +671,11 @@
         <div class="padding">
           <div>
             <span class="pull-right"><i class="fa fa-caret-down text-danger m-y-xs"></i></span>
-            <span class="text-muted l-h-1x"><i class="ion-pie-graph text-muted"></i></span>
+            <span class="text-muted l-h-1x"><i class="ion-cash text-muted"></i></span>
           </div>
           <div class="text-center">
-            <h2 class="text-center _600">8</h2>
-            <p class="text-muted m-b-md">New Quotes</p>
+            <h2 class="text-center _600">Ghs80000</h2>
+            <p class="text-muted m-b-md">Total Fees Paid</p>
             <div>
               <span data-ui-jp="sparkline" data-ui-options="[9,2,5,5,7,4,4,3,2,2], {type:'line', height:20, width: '60', lineWidth:1, valueSpots:{'0:':'#818a91'}, lineColor:'#818a91', spotColor:'#818a91', fillColor:'', highlightLineColor:'rgba(120,130,140,0.3)', spotRadius:0}" class="sparkline inline"></span>
             </div>
@@ -620,11 +686,11 @@
         <div class="padding">
           <div>
             <span class="pull-right"><i class="fa fa-caret-up text-primary m-y-xs"></i></span>
-            <span class="text-muted l-h-1x"><i class="ion-paper-airplane text-muted"></i></span>
+            <span class="text-muted l-h-1x"><i class="ion-android-sad text-muted"></i></span>
           </div>
           <div class="text-center">
             <h2 class="text-center _600">36</h2>
-            <p class="text-muted m-b-md">New Compains</p>
+            <p class="text-muted m-b-md">Total Students Owing Fees</p>
             <div>
               <span data-ui-jp="sparkline" data-ui-options="[3,3,1,62,4,3,7,3,2,5], {type:'line', height:20, width: '60', lineWidth:1, valueSpots:{'0:':'#818a91'}, lineColor:'#818a91', spotColor:'#818a91', fillColor:'', highlightLineColor:'rgba(120,130,140,0.3)', spotRadius:0}" class="sparkline inline"></span>
             </div>
@@ -1025,7 +1091,7 @@
               </div>
             </div>
           </div>
-      <div class="row">
+      {{-- <div class="row">
           <div class="col-sm-6">
               <div class="box">
                   <div class="box-header">
@@ -1146,8 +1212,8 @@
                 <a href="#" class="btn btn-xs white rounded">More</a>
               </div>
             </div>
-        </div>
-          <div class="col-sm-12">
+        </div> --}}
+          {{-- <div class="col-sm-12">
             <div class="row-col b-a white m-b">
               <div class="col-md-8">
                 <div class="box-header b-b"><h3>World Market</h3></div>
@@ -1225,9 +1291,9 @@
                 </div>
               </div>
             </div>
-          </div>
-      </div>
-      <div class="row">
+          </div> --}}
+      {{-- </div> --}}
+      {{-- <div class="row">
         <div class="col-sm-6">
           <div class="box">
             <div class="box-header">
@@ -1292,7 +1358,7 @@
                   </ul>
               </div>
         </div>
-      </div>
+      </div> --}}
     </div>
   </div>
   <div class="col-lg w-lg w-auto-md white bg">
