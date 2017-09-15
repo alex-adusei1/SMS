@@ -2,7 +2,7 @@
 
 @section('content')
 
-  <div class="app" id="app">
+  <div class="app" id="app" >
 
 <!-- ############ LAYOUT START-->
 

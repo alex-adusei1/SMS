@@ -131,5 +131,6 @@ background-repeat: no-repeat; background-position: center">
   <script src="{{ asset('scripts/ui-taburl.js') }}"></script>
   <script src="{{ asset('scripts/app.js') }}"></script>
   <script src="{{ asset('scripts/ajax.js') }}"></script>
+
 </body>
 </html>
