@@ -38,7 +38,8 @@
   <!-- endbuild -->
   <link rel="stylesheet" href="{{ asset('css/styles/font.css')}}" type="text/css" />
 </head>
-<body style="">
+<body style="background-image: url(http://localhost/sms/public/images/bg/grads.jpg);
+background-repeat: no-repeat; background-position: center">
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">

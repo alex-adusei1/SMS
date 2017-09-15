@@ -51,12 +51,12 @@
 
             <div class="m-b-md">
               <label class="md-check">
-                <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> <i class="primary"></i> Remember Me
-                <input type="checkbox"> Keep me signed in
+                <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> <i class="primary"></i><span> Remember Me</span>
+
               </label>
             </div>
 
-                    <button type="submit" class="btn btn-lg black p-x-lg">
+                    <button type="submit" class="btn btn-lg white p-x-lg">
                         Sign In
                     </button>
 
