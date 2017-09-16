@@ -37,6 +37,7 @@
   <link rel="stylesheet" href="{{ asset('css/styles/style.css')}}" type="text/css" />
   <!-- endbuild -->
   <link rel="stylesheet" href="{{ asset('css/styles/font.css')}}" type="text/css" />
+
 </head>
 <body style="background-image: url(image/bg/grads.jpg);
 background-repeat: no-repeat; background-position: center">
@@ -737,5 +738,7 @@ background-repeat: no-repeat; background-position: center">
   <script src="{{ asset('scripts/ui-taburl.js') }}"></script>
   <script src="{{ asset('scripts/app.js') }}"></script>
   <script src="{{ asset('scripts/ajax.js') }}"></script>
+
+
 </body>
 </html>

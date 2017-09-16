@@ -164,7 +164,7 @@
 
     <div class="box">
       <div class="box-header">
-        <h3>Table with elements</h3>
+        <h3>Teachers Dashboard</h3>
       </div>
       <div class="row p-a">
         <div class="col-sm-5">
@@ -176,7 +176,14 @@
             <option value="4">Export to PDF</option>
             <option value="5">Export to Excel</option>
           </select>
-          <button class="btn white">Apply</button>
+          <button class="btn white">Apply</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            	{{-- <button class="btn white" data-toggle="modal" data-target="#m-a-a" data-ui-toggle-class="flip-y" data-ui-target="#animate">Flip y</button> --}}
+          <button class="md-btn md-fab m-b-xs pink" data-toggle="modal" data-target="#m-a-a" data-ui-toggle-class="flip-y" data-ui-target="#animate" title="Add Teacher"><i class="fa fa-plus"></i></button>
+          {{-- <button class="md-btn md-fab m-b-sm indigo"><i class="fa fa-search"></i></button>
+          <button class="md-btn md-fab m-b-sm pink"><i class="fa fa-phone"></i></button>
+          <button class="md-btn md-fab m-b-sm blue"><i class="fa fa-cloud-upload"></i></button>
+          <button class="md-btn md-fab m-b-sm grey" disabled><i class="fa fa-location-arrow"></i></button> --}}
+
         </div>
         <div class="col-sm-4">
         </div>
@@ -201,9 +208,10 @@
               <th>Full Name</th>
               <th>Classroom</th>
               <th>Edu Level</th>
+              <th>Expirence</th>
               <th>Email</th>
               <th>Phone Number</th>
-              <th style="width:50px;"></th>
+              <th style="width:50px">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -212,10 +220,20 @@
               <td>Alex Adomako Adusei</td>
               <td>4c</td>
               <td>Teacher Training</td>
+              <td>4 Years</td>
               <td>alex@gmail.com</td>
               <td>024958885</td>
               <td>
-                <a href="#" class="active" data-ui-toggle-class><i class="fa fa-check text-success none"></i><i class="fa fa-times text-danger inline"></i></a>
+                <div>
+                  {{-- <a class="btn btn-xs btn-icon rounded danger" style="display:inline-block">
+                    <i class="fa fa-plus"></i>
+                  </a> --}}
+                  <a class="btn btn-xs btn-icon rounded info" style="display: inline-block" title="View Teacher">
+                    <i class="fa fa-eye"></i>
+                  </a>
+                </div>
+
+                {{-- <a href="#" class="active" data-ui-toggle-class><i class="fa fa-check text-success none"></i><i class="fa fa-times text-danger inline"></i></a> --}}
               </td>
             </tr>
             <tr>
@@ -223,10 +241,14 @@
               <td>Doris Boateng</td>
               <td>4a</td>
               <td>Teacher Training</td>
+              <td>3 years</td>
               <td>doris@gmail.com</td>
               <td>0239488459</td>
               <td>
-                <a href="#" class="active" data-ui-toggle-class><i class="fa fa-check text-success none"></i><i class="fa fa-times text-danger inline"></i></a>
+                <a class="btn btn-xs btn-icon rounded info" style="display: inline-block" title="View Teacher">
+                  <i class="fa fa-eye"></i>
+                </a>
+                {{-- <a href="#" class="active" data-ui-toggle-class><i class="fa fa-check text-success none"></i><i class="fa fa-times text-danger inline"></i></a> --}}
               </td>
             </tr>
           </tbody>
@@ -271,5 +293,365 @@
     </div>
   </div>
 
+  <!-- .modal -->
+  <div id="m-d" class="modal fade animate" data-backdrop="true">
+    <div class="modal-dialog" id="animate">
+      <div class="modal-content">
+        <div class="modal-header">
+        	<h5 class="modal-title">Add Teacher</h5>
+        </div>
+        <div class="modal-body text-center p-lg">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">No</button>
+          <button type="button" class="btn danger p-x-md" data-dismiss="modal">Yes</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div>
+  </div>
+  <!-- / .modal -->
+
+  <!-- large modal -->
+  <div id="m-a-a" class="modal" data-backdrop="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+        	<h5 class="modal-title"> <i class="ion-ios-people"></i> Add Teacher</h5>
+        </div>
+        <div class="modal-body text-center p-lg">
+          <div class="box-body">
+              <form data-ui-jp="parsley" id="form">
+                <div id="rootwizard" data-ui-jp="bootstrapWizard" data-ui-options="{
+                  onTabClick: function(tab, navigation, index) {
+                    return false;
+                  },
+                  onNext: function(tab, navigation, index) {
+                    var instance = $('#form').parsley();
+                    instance.validate();
+                    if(!instance.isValid()) {
+                      return false;
+                    }
+                  }
+                  }">
+                  <ul class="nav nav-pills clearfix m-b">
+                    <li class="nav-item active"><a class="nav-link" href="#tab1" data-toggle="tab">Personal Information</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tab2" data-toggle="tab">Educational Background</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tab3" data-toggle="tab">Expirence</a></li>
+                  </ul>
+                  <div class="tab-content">
+
+                      <div class="tab-pane active" id="tab1">
+                        <div class="row">
+                          <div class="form-group col-sm-6">
+                            <div class="input-group">
+                              <div class="input-group-addon">
+                                First Name
+                              </div>
+                              <input type="text" class="form-control" required>
+                            </div>
+                          </div>
+                          <div class="form-group col-sm-6">
+                            <div class="input-group">
+                              <div class="input-group-addon">
+                                Last Name
+                              </div>
+                              <input type="text" class="form-control" required>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="form-group col-sm-6">
+                            <div class="input-group">
+                              <div class="input-group-addon">
+                                Username
+                              </div>
+                              <input type="text" class="form-control" required>
+                            </div>
+                          </div>
+                          <div class="form-group col-sm-6">
+                            <div class="input-group">
+                              <div class="input-group-addon">
+                                Email
+                              </div>
+                              <input type="email" class="form-control" required>
+                            </div>
+                          </div>
+                        </div>
+
+
+                        <div class="row">
+                          <div class="form-group col-sm-6">
+                            <div class="input-group">
+                              <div class="input-group-addon">
+                                Password
+                              </div>
+                              <input type="password" class="form-control" required>
+                            </div>
+                          </div>
+                          <div class="form-group col-sm-6">
+                            <div class="input-group">
+                              <div class="input-group-addon">
+                                Confirm Password
+                              </div>
+                              <input type="password" class="form-control" required>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="form-group col-sm-6">
+                            <div class="input-group">
+                              <div class="input-group-addon">
+                                Phone
+                              </div>
+                              <input type="text" class="form-control" required>
+                            </div>
+                          </div>
+                          <div class="form-group col-sm-6">
+                            <div class="input-group">
+                              <div class="input-group-addon">
+                                Mobile
+                              </div>
+                              <input type="text" class="form-control" required>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="form-group col-sm-6">
+                            <div class="input-group">
+                              <div class="input-group-addon">
+                                gender
+                              </div>
+                                <select class="form-control" name="gender">
+                                  <option value="male">Male</option>
+                                  <option value="female">Female</option>
+                                </select>
+                            </div>
+                          </div>
+                          <div class="form-group col-sm-6">
+                            <div class="input-group">
+                              <div class="input-group-addon">
+                                DOB
+                              </div>
+                              <input type="date" class="form-control" required>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="form-group col-sm-6">
+                            <div class="input-group">
+                              <div class="input-group-addon">
+                                Country
+                              </div>
+                              <select class="form-control" name="country">
+                                <option value="ghana">Ghana</option>
+                                <option value="togo">Togo</option>
+                              </select>
+                              {{-- <input type="text" class="form-control" required> --}}
+                            </div>
+                          </div>
+                          <div class="form-group col-sm-6">
+                            <div class="input-group">
+                              <div class="input-group-addon">
+                                Postal Addresss
+                              </div>
+                              <input type="text" class="form-control" required>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="form-group col-sm-6">
+                            <div class="input-group">
+                              <div class="input-group-addon">
+                                Residential Adress
+                              </div>
+                              <input type="text" class="form-control" required>
+                            </div>
+                          </div>
+                          <div class="form-group col-sm-6">
+                            <div class="input-group">
+                              <div class="input-group-addon">
+                                Location
+                              </div>
+                              <input type="text" class="form-control" required>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="form-group col-sm-6">
+                            <div class="input-group">
+                              <div class="input-group-addon">
+                                Place Of Birth
+                              </div>
+                              <input type="text" class="form-control" required>
+                            </div>
+                          </div>
+                          <div class="form-group col-sm-6">
+                            <div class="input-group">
+                              <div class="input-group-addon">
+                                Tribe
+                              </div>
+                              <input type="text" class="form-control" required>
+                            </div>
+                          </div>
+                        </div>
+                        {{-- <div class="checkbox">
+                          <label class="ui-check">
+                            <input type="checkbox" name="check" checked required="true"><i></i> I agree to the <a href="#" class="text-info">Terms of Service</a>
+                          </label>
+                        </div> --}}
+                      </div>
+                      <div class="tab-pane" id="tab2">
+                        <div class="row">
+                          <div class="form-group col-sm-6">
+                            <div class="input-group">
+                              <div class="input-group-addon">
+                                Highest Education Level
+                              </div>
+                                <select class="form-control" name="gender">
+                                  <option value="male">Phd</option>
+                                  <option value="male">Masters</option>
+                                  <option value="female">Bsc</option>
+                                  <option value="female">HND</option>
+                                  <option value="male">Teachers Training</option>
+                                  <option value="female">SHS</option>
+                                </select>
+                            </div>
+                          </div>
+                          <div class="form-group col-sm-6">
+                            <div class="input-group">
+                              <div class="input-group-addon">
+                                Year Graduated
+                              </div>
+                              <input type="date" class="form-control" required>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="form-group col-sm-6">
+                            <div class="input-group">
+                              <div class="input-group-addon">
+                                Certificate
+                              </div>
+                              <input type="file" class="form-control" name="name" value="">
+                              {{-- <input type="text" class="form-control" required> --}}
+                            </div>
+                          </div>
+                          <div class="form-group col-sm-6">
+                            <div class="input-group">
+                              <div class="input-group-addon">
+                                Other Certificate
+                              </div>
+                              <input type="file" class="form-control" required>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+
+                      {{-- tab3 --}}
+                      <div class="tab-pane" id="tab3">
+                        <div class="row">
+                          <div class="form-group col-sm-6">
+                            <div class="input-group">
+                              <div class="input-group-addon">
+                                Worked Before
+                              </div>
+                              <select class="form-control" name="">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="form-group col-sm-6">
+                            <div class="input-group">
+                              <div class="input-group-addon">
+                                Name Of Institution
+                              </div>
+                              <input type="text" class="form-control" required>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="form-group col-sm-6">
+                            <div class="input-group">
+                              <div class="input-group-addon">
+                                Years of Experence
+                              </div>
+                              <select class="form-control" name="">
+                                <option value="yes">1-3</option>
+                                <option value="no">3-5</option>
+                                <option value="yes">5-10</option>
+                                <option value="no">10-15</option>
+                                <option value="yes">15-25</option>
+                                <option value="no">25-40</option>
+                              </select>
+                            </div>
+                          </div>
+
+                          <div class="form-group col-sm-6">
+                            <div class="input-group">
+                              <div class="input-group-addon">
+                                Location
+                              </div>
+                              <input type="text" class="form-control" required>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="form-group col-sm-6">
+                              <label class="control-label"> Strong Areas </label>
+
+                              <label class="checkbox-inline">
+                                <input type="checkbox" value="option1"> Maths
+                              </label>
+                              <label class="checkbox-inline">
+                                <input type="checkbox" value="option2"> English
+                              </label>
+                              <label class="checkbox-inline">
+                                <input type="checkbox" value="option3"> Science
+                              </label>
+                              {{-- <label class="checkbox-inline">
+                                <input type="checkbox" value="option1"> Science
+                              </label> --}}
+                          </div>
+
+                          <div class="form-group col-sm-6">
+                            <div class="input-group">
+                              <div class="input-group-addon">
+                                CV
+                              </div>
+                              <input type="file" class="form-control" required>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
+                      <ul class="list-inline pager wizard">
+                        <li class="previous first" style="display:none;"><a href="#" class="btn white">First</a></li>
+                        <li class="previous"><a href="#" class="btn white">Previous</a></li>
+                        <li class="next last" style="display:none;"><a href="#" class="btn white">Last</a></li>
+                        <li class="next"><a href="#" class="btn white">Next</a></li>
+                      </ul>
+                  </div>
+                </div>
+              </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">No</button>
+          <button type="button" class="btn danger p-x-md" data-dismiss="modal">Yes</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div>
+  </div>
+  <!-- / .modal -->
 
 @endsection
