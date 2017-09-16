@@ -158,7 +158,111 @@
           </div>
         </div>
       </div>
+
+
     </div>
+
+    <div class="box">
+      <div class="box-header">
+        <h3>Table with elements</h3>
+      </div>
+      <div class="row p-a">
+        <div class="col-sm-5">
+          <select class="custom-select w-sm inline v-middle">
+            <option value="0">Bulk action</option>
+            <option value="1">Delete selected</option>
+            <option value="2">Bulk email</option>
+            <option value="3">Bulk sms</option>
+            <option value="4">Export to PDF</option>
+            <option value="5">Export to Excel</option>
+          </select>
+          <button class="btn white">Apply</button>
+        </div>
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-3">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search">
+            <span class="input-group-btn">
+              <button class="btn white" type="button">Go!</button>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-striped b-t">
+          <thead>
+            <tr>
+              <th style="width:20px;">
+                <label class="ui-check m-a-0">
+                  <input type="checkbox"><i></i>
+                </label>
+              </th>
+              <th>Full Name</th>
+              <th>Classroom</th>
+              <th>Edu Level</th>
+              <th>Email</th>
+              <th>Phone Number</th>
+              <th style="width:50px;"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><label class="ui-check m-a-0"><input type="checkbox" name="post[]"><i class="dark-white"></i></label></td>
+              <td>Alex Adomako Adusei</td>
+              <td>4c</td>
+              <td>Teacher Training</td>
+              <td>alex@gmail.com</td>
+              <td>024958885</td>
+              <td>
+                <a href="#" class="active" data-ui-toggle-class><i class="fa fa-check text-success none"></i><i class="fa fa-times text-danger inline"></i></a>
+              </td>
+            </tr>
+            <tr>
+              <td><label class="ui-check m-a-0"><input type="checkbox" name="post[]"><i class="dark-white"></i></label></td>
+              <td>Doris Boateng</td>
+              <td>4a</td>
+              <td>Teacher Training</td>
+              <td>doris@gmail.com</td>
+              <td>0239488459</td>
+              <td>
+                <a href="#" class="active" data-ui-toggle-class><i class="fa fa-check text-success none"></i><i class="fa fa-times text-danger inline"></i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <footer class="light lt p-a">
+        <div class="row">
+          <div class="col-sm-4 hidden-xs">
+            <select class="custom-select w-sm inline v-middle">
+              <option value="0">Bulk action</option>
+              <option value="1">Delete selected</option>
+              <option value="2">Bulk edit</option>
+              <option value="3">Export</option>
+            </select>
+            <button class="btn white">Apply</button>
+          </div>
+          <div class="col-sm-4 text-center">
+            <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 items</small>
+          </div>
+          <div class="col-sm-4 text-right text-center-xs">
+            <ul class="pagination m-a-0">
+              <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+              <li class="active"><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+
+
 
   </div>
 

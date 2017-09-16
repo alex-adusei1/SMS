@@ -122,7 +122,7 @@ background-repeat: no-repeat; background-position: center">
                       <span class="text-xs">Main</span>
                     </li>
                     <li>
-                      <a href="dashboard.html" class="b-danger" title="Dashboard">
+                      <a href="{{url('/home')}}" class="b-danger" title="Dashboard">
                         <span class="nav-icon text-white no-fade">
                           <i class="ion-filing"></i>
                         </span>
@@ -230,19 +230,19 @@ background-repeat: no-repeat; background-position: center">
                       </a>
                     </li>
 
-
+{{--
                     <li class="nav-header hidden-folded m-t">
                       <span class="text-xs">UI Elements</span>
                     </li>
                     <li>
-                      <a>
+                      <a class="b-warning">
                         <span class="nav-caret">
                           <i class="fa fa-caret-down"></i>
                         </span>
-                        <span class="nav-icon">
-                          <i class="ion-plus-circled"></i>
+                        <span class="nav-icon text-white no-fade">
+                          <i class="ion-ios-people"></i>
                         </span>
-                        <span class="nav-text">UI kit</span>
+                        <span class="nav-text">Teacher</span>
                       </a>
                       <ul class="nav-sub nav-mega nav-mega-3">
                         <li>
@@ -572,7 +572,7 @@ background-repeat: no-repeat; background-position: center">
                               <a href="echarts-map.html" >
                                 <span class="nav-text">Map</span>
                               </a>
-                            </li>
+                            </li> --}}
                           </ul>
                         </li>
                       </ul>
