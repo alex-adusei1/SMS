@@ -18,10 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/student',function(){
-    return "Student";
-});
 
 Route::get('/classroom', function(){
-    return "classroom";
-});
+    return view('classroom.create');
+})->middleware('auth');
+
