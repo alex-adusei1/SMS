@@ -23,3 +23,4 @@ Route::get('/classroom', function(){
     return view('classroom.create');
 })->middleware('auth');
 
+Route::post('/classroom/store','ClassroomsController@store');
