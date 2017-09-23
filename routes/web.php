@@ -19,8 +19,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/classroom', function(){
-    return view('classroom.create');
-})->middleware('auth');
+// Route::get('/classroom/index', function(){
+//     return view('classroom.create');
+// })->middleware('auth');
 
-Route::post('/classroom/store','ClassroomsController@store');
+// Route::post('/classroom','ClassroomsController@store');
+// Route::get('/classroom/index','ClassroomsController@index');
+// Route::delete('classroom/index/delete/{id}','ClassroomsController@destroy');
+// Route::post('classroom/index/{id}', 'ClassroomsController@update');
+// Route::put('classroom/index/update/{id}', 'ClassroomsController@update');
+Route::get('/classroom','ClassroomsController@index');

@@ -21,8 +21,9 @@ class ClassroomsController extends Controller
      */
     public function index()
     {
-        $total_classroom = DB::table('classrooms')->count();
-        
+        $classRoomObjects = Classroom::all();
+        // $classRoomObjects = Classroom::orderBy('id', 'asc')->paginate(2);
+        return view('classroom.create')->with('classRoomObjects',$classRoomObjects);
 
     }
 
@@ -62,8 +63,7 @@ class ClassroomsController extends Controller
         $add_class_field->save();
      
        //redirect
-       return redirect('/classroom')->with('success','Classroom Created');
-        
+       return redirect('/classroom/index')->with('success','Classroom Created');
        
 
     }
@@ -87,7 +87,7 @@ class ClassroomsController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
@@ -99,7 +99,9 @@ class ClassroomsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       $classRoomObjects = Classroom::find($id);
+        // return view('classroom.create');
+        return 'update';
     }
 
     /**
@@ -110,6 +112,9 @@ class ClassroomsController extends Controller
      */
     public function destroy($id)
     {
-        //
+         $classRoomObjects = Classroom::find($id);
+         $classRoomObjects->delete();
+         //redirect
+       return redirect('/classroom/index')->with('success','Classroom deleted');
     }
 }

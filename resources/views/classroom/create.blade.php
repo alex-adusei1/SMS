@@ -1,4 +1,5 @@
-@extends('layouts.app')
+
+    @extends('layouts.app')
 
 @section('content')
 
@@ -632,19 +633,24 @@
       <span class="text-sm text-muted">&copy; Copyright.</span>
     </div>
     <div class="app-body">
-
+      @include('inc.messages')
 <!-- ############ PAGE START-->
-<div class="row-col">
+<div class="row-col" col-sm-12>
   <div class="col-lg b-r">
     <div class="row no-gutter">
-      <div class="col-xs-6 col-sm-3  col-md-6 b-r b-b">
+      <div class="col-xs-6 col-sm-6  col-md-6 b-r b-b">
         <div class="padding">
           <div>
             <span class="pull-right"><i class="fa fa-caret-up text-primary m-y-xs"></i></span>
             <span class="text-muted l-h-1x"><i class="ion-university text-muted"></i></span>
           </div>
           <div class="text-center">
-            <h2 class="text-center _600">000</h2>
+             @if(count($classRoomObjects)>0)
+                <h2 class="text-center _600">{{$classRoomObjects->count()}}</h2>
+             @else
+               <h2 class="text-center _600">000</h2>
+             @endif
+            
             <p class="text-muted m-b-md">Total Number Of Classroom</p>
             <div>
               <span data-ui-jp="sparkline" data-ui-options="[2,3,2,2,1,3,6,3,2,1], {type:'line', height:20, width: '60', lineWidth:1, valueSpots:{'0:':'#818a91'}, lineColor:'#818a91', spotColor:'#818a91', fillColor:'', highlightLineColor:'rgba(120,130,140,0.3)', spotRadius:0}" class="sparkline inline"></span>
@@ -652,7 +658,7 @@
           </div>
         </div>
           </div>
-          <div class="col-xs-6 col-sm-3 col-md-6">
+          <div class="col-xs-6 col-sm-6 col-md-6">
         <div class="padding">
           <div>
             <span class="pull-right"><i class="fa fa-caret-up text-primary m-y-xs"></i></span>
@@ -669,8 +675,8 @@
           </div>
 
           <!-- classroom -->
-          <div class="row-col">
-            <div class="col-xs-6 col-sm-3 col-md-4 b-r b-b">
+          <div class="row col-sm-12">
+            <div class="col-sm-12 ">
                 <button class="btn btn-lg text-center btn.info" data-toggle="modal" data-target="#myModal">Add class</button>
             </div>
                 <!-- inline search class -->
@@ -686,7 +692,73 @@
             </div> -->
                
           </div>
-          <!-- Modal -->
+
+            {{-- show details --}}
+            
+            <div class="row-col table-responsive">
+              <table class=" table table-hover ">
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Capacity</th>
+                  <th>Floor</th>
+                  <th>Location</th>
+                  <th>Action</th>
+                  @if(count($classRoomObjects)>0)
+                      @foreach($classRoomObjects as $classObj)
+                        <tr>
+                          <td>{{$classObj->id}}</td>
+                          <td>{{$classObj->name}}</td>
+                          <td>{{$classObj->capacity}}</td>
+                          <td>{{$classObj->floor}}</td>
+                          <td>{{$classObj->location}}</td>
+                          <td>
+                          <a href="{{url('classroom/index/edit'.$classObj->id)}}" class="btn btn-sm btn-success">edit</a>
+                           
+                         <form action="{{url('classroom/index/delete/'.$classObj->id)}}" method="POST">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                                    <input type="hidden" name="_method" value="DELETE">
+                                     
+                                    <button type="submit" class="btn btn-danger btn-sm pull-right">clear</button>
+                            </form>
+
+                
+                          </td>
+
+                        </tr>
+                      @endforeach
+                             {{--set pagination when dispay reaches 10 --}}
+                           {{-- {{ $classRoomObjects->links()}} --}}
+                       
+
+                    @else
+                        <td>null</td>
+                        <td>null</td>
+                        <td>null</td>
+                        <td>null</td>
+                        <td>null</td>
+                        <td>
+                        {{-- <a href="#" class="btn btn-sm btn-success">edit</a>
+                        <a href="#" class="btn btn-sm btn-danger">delete</a> --}}
+                        </td>
+                        
+                  @endif
+                  
+
+
+              </table>
+
+            </div>
+
+
+              </table>
+
+            </div>
+
+
+
+
+          <!-- Modal create-->
           <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog modal-sm">
               <div class="modal-content">
@@ -695,23 +767,23 @@
                   <h4 class="modal-title">Register New Classroom </h4>
                 </div>
                 <div class="modal-body">
-                 <form action="{{ url('/classroom/create') }}" method="POST">
+                 <form action="{{ url('/classroom/index/store') }}" method="POST">
                      {{ csrf_field() }}
                     <div class="form-group">
                       <label for="class-name">Name of class: </label>
-                      <input type="text" name="class_name" class="form-control" id="class-name">
+                      <input type="text" name="class_name" class="form-control" id="class-name" required="required">
                     </div>
                       <div class="form-group">
                         <label for="class_capacity">Classroom capacity</label>
-                        <input type="number" name="class_capacity" value="0" id="class_capacity" class="form-control">
+                        <input type="number" required="required" name="class_capacity" value="0" id="class_capacity" class="form-control">
                       </div>
                       <div class="form-group">
                         <label for="class_floor">Floor name: </label>
-                        <input type="text" name="class_floor" id="class_floor" class="form-control">
+                        <input type="text" required="required"  name="class_floor" id="class_floor" class="form-control">
                       </div>
                     <div class="form-group">
                       <label for="class_location">Location: </label>
-                      <input type="text" name="class_location" id="class_location" class="form-control">
+                      <input type="text" name="class_location" required="required" id="class_location" class="form-control">
                     </div>
                     <div class="form-group">
                       <button type="submit" class="btn btn-sm form-btn btn-success">save</button>
@@ -727,6 +799,49 @@
             </div>
           </div>
 
+            {{-- Modal edit goes here --}}
+            
+          <!-- Modal create-->
+          <div class="modal fade" id="updateModal" role="dialog">
+            <div class="modal-dialog modal-sm">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Update Classroom </h4>
+                </div>
+                <div class="modal-body">
+                 <form action="{{ url('/classroom/index/update') }}" method="POST">
+                     {{ csrf_field() }}
+                    <div class="form-group">
+                      <label for="class-name">Name of class: </label>
+                      <input type="text" name="class_name" class="form-control" id="class-name" required="required">
+                    </div>
+                      <div class="form-group">
+                        <label for="class_capacity">Classroom capacity</label>
+                        <input type="number" required="required" name="class_capacity" value="0" id="class_capacity" class="form-control">
+                      </div>
+                      <div class="form-group">
+                        <label for="class_floor">Floor name: </label>
+                        <input type="text" required="required"  name="class_floor" id="class_floor" class="form-control">
+                      </div>
+                    <div class="form-group">
+                      <label for="class_location">Location: </label>
+                      <input type="text" name="class_location" required="required" id="class_location" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-sm form-btn btn-success">save</button>
+                      <button type="reset" class="btn btn-sm form-btn btn-warning">refresh</button>
+                      <button type="button" class="btn btn-sm form-btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+                 </form>
+                </div>
+                <div class="modal-footer text-center">
+                    {{ config('app.name') }}
+                </div>
+              </div>
+            </div>
+          </div>
+         
 
           <!-- <div class="col-xs-6 col-sm-3 b-r b-b">
         <div class="padding">
@@ -1693,3 +1808,4 @@
 <!-- ############ LAYOUT END-->
   </div>
 @endsection
+
