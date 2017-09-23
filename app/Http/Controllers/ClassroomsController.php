@@ -63,7 +63,7 @@ class ClassroomsController extends Controller
         $add_class_field->save();
      
        //redirect
-       return redirect('/classroom/index')->with('success','Classroom Created');
+       return redirect('/classroom')->with('success','Classroom Created');
        
 
     }
@@ -115,6 +115,6 @@ class ClassroomsController extends Controller
          $classRoomObjects = Classroom::find($id);
          $classRoomObjects->delete();
          //redirect
-       return redirect('/classroom/index')->with('success','Classroom deleted');
+       return redirect('/classroom')->with('success','Classroom deleted');
     }
 }

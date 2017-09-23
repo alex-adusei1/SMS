@@ -8,13 +8,13 @@
 @endif
 
 @if(session('success'))
-    <div class="alert alert-success alert-dismissable">
+    <div class="alert alert-success alert-dismissable" style="width:400px;">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         {{ session('success') }}
     </div>
 @endif
 @if(session('error'))
-    <div class="alert alert-danger  alert-dismissable">
+    <div class="alert alert-danger  alert-dismissable" style="width:400px;">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         {{ session('error') }}
     </div>

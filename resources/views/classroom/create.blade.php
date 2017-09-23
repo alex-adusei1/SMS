@@ -722,9 +722,9 @@
                           <td>{{$classObj->floor}}</td>
                           <td>{{$classObj->location}}</td>
                           <td>
-                          <a href="{{url('classroom/index/edit'.$classObj->id)}}" class="btn btn-sm btn-success">edit</a>
+                          <a href="#" class="btn btn-sm btn-success text-center" data-toggle="modal" data-target="#updateClassroomModal">edit</a>
                            
-                         <form action="{{url('classroom/index/delete/'.$classObj->id)}}" method="POST">
+                         <form action="{{url('classroom/delete/'.$classObj->id)}}" method="POST">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
                                     <input type="hidden" name="_method" value="DELETE">
@@ -754,16 +754,11 @@
                         
                   @endif
                   
-
-
               </table>
 
             </div>
 
 
-              </table>
-
-            </div>
 
 
 
@@ -777,7 +772,7 @@
                   <h4 class="modal-title">Register New Classroom </h4>
                 </div>
                 <div class="modal-body">
-                 <form action="{{ url('/classroom/index/store') }}" method="POST">
+                 <form action="{{ url('/classroom/store') }}" method="POST">
                      {{ csrf_field() }}
                     <div class="form-group">
                       <label for="class-name">Name of class: </label>
@@ -811,47 +806,51 @@
 
             {{-- Modal edit goes here --}}
             
-          <!-- Modal create-->
-          <div class="modal fade" id="updateModal" role="dialog">
-            <div class="modal-dialog modal-sm">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Update Classroom </h4>
-                </div>
-                <div class="modal-body">
-                 <form action="{{ url('/classroom/index/update') }}" method="POST">
-                     {{ csrf_field() }}
-                    <div class="form-group">
-                      <label for="class-name">Name of class: </label>
-                      <input type="text" name="class_name" class="form-control" id="class-name" required="required">
-                    </div>
+         @if(count($classRoomObjects)>0)
+
+        
+            <div class="modal fade" id="updateClassroomModal" role="dialog">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Update Classroom </h4>
+                  </div>
+                  <div class="modal-body">
+                  <form action="{{ url('classroom/update/') }}" method="POST">
+                      {{ csrf_field() }}
+                      {{ method_field('PUT') }}
                       <div class="form-group">
-                        <label for="class_capacity">Classroom capacity</label>
-                        <input type="number" required="required" name="class_capacity" value="0" id="class_capacity" class="form-control">
+                        <label for="class-name">Name of class: </label>
+                        <input type="text" name="class_name" class="form-control" id="class-name" required="required">
+                      </div>
+                        <div class="form-group">
+                          <label for="class_capacity">Classroom capacity</label>
+                          <input type="number" required="required" name="class_capacity" value="0" id="class_capacity" class="form-control">
+                        </div>
+                        <div class="form-group">
+                          <label for="class_floor">Floor name: </label>
+                          <input type="text" required="required"  name="class_floor" id="class_floor" class="form-control">
+                        </div>
+                      <div class="form-group">
+                        <label for="class_location">Location: </label>
+                        <input type="text" name="class_location" required="required" id="class_location" class="form-control">
+                        <input type="hidden" value="PUT" name="_method">
                       </div>
                       <div class="form-group">
-                        <label for="class_floor">Floor name: </label>
-                        <input type="text" required="required"  name="class_floor" id="class_floor" class="form-control">
+                        <button type="submit" class="btn btn-sm form-btn btn-success">save</button>
+                        <button type="reset" class="btn btn-sm form-btn btn-warning">refresh</button>
+                        <button type="button" class="btn btn-sm form-btn btn-danger" data-dismiss="modal">Close</button>
                       </div>
-                    <div class="form-group">
-                      <label for="class_location">Location: </label>
-                      <input type="text" name="class_location" required="required" id="class_location" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <button type="submit" class="btn btn-sm form-btn btn-success">save</button>
-                      <button type="reset" class="btn btn-sm form-btn btn-warning">refresh</button>
-                      <button type="button" class="btn btn-sm form-btn btn-danger" data-dismiss="modal">Close</button>
-                    </div>
-                 </form>
-                </div>
-                <div class="modal-footer text-center">
-                    {{ config('app.name') }}
+                  </form>
+                  </div>
+                  <div class="modal-footer text-center">
+                      {{ config('app.name') }}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-         
+          @endif
 
           <!-- <div class="col-xs-6 col-sm-3 b-r b-b">
         <div class="padding">

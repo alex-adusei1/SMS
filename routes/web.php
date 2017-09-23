@@ -29,4 +29,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Route::post('classroom/index/{id}', 'ClassroomsController@update');
 // Route::put('classroom/index/update/{id}', 'ClassroomsController@update');
 Route::get('/classroom','ClassroomsController@index');
+Route::post('/classroom/store','ClassroomsController@store');
 Route::delete('classroom/delete/{id}','ClassroomsController@destroy');
+Route::put('classroom/update/{id}', 'ClassroomsController@update');
