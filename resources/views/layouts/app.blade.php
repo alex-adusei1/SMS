@@ -7,10 +7,11 @@
   <meta charset="utf-8" />
   <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-  <title>{{ config('app.name', 'Laravel') }}</title>
+  <title>{{ config('app_name', 'SMS') }}</title>
   <meta name="description" content="Responsive, Bootstrap, BS4" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
 
   <!-- for ios 7 style, multi-resolution icon of 152x152 -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -55,7 +56,7 @@ background-repeat: no-repeat; background-position: center">
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app_name', 'SMS') }}
                     </a>
                 </div>
 
