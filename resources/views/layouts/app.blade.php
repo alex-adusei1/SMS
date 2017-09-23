@@ -123,7 +123,7 @@ background-repeat: no-repeat; background-position: center">
                       <span class="text-xs">Main</span>
                     </li>
                     <li>
-                      <a href="{{url('/home')}}" class="b-danger" title="Dashboard">
+                      <a href="{{url('/')}}" class="b-danger" title="Dashboard">
                         <span class="nav-icon text-white no-fade">
                           <i class="ion-filing"></i>
                         </span>
@@ -158,7 +158,7 @@ background-repeat: no-repeat; background-position: center">
                     </li>
 
                     <li>
-                      <a href="{{url('/teacher')}}" class="b-primary" title="Teachers">
+                      <a href="{{route('teacher_index')}}" class="b-primary" title="Teachers">
                         <span class="nav-icon text-white no-fade">
                           <i class="ion-ios-people"></i>
                         </span>
@@ -166,7 +166,7 @@ background-repeat: no-repeat; background-position: center">
                       </a>
                     </li>
                     <li>
-                      <a href="dashboard.html" class="b-danger" title="Class Rooms">
+                      <a href="#" class="b-danger" title="Class Rooms">
                         <span class="nav-icon text-white no-fade">
                           <i class="ion-ios-home"></i>
                         </span>

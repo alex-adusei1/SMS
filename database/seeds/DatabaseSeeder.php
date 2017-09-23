@@ -78,5 +78,47 @@ class DatabaseSeeder extends Seeder
               'floor'=>'ground floor',
               'location'=>'akoto block'
           ]);
+          
+          
+          DB::table('school__subjects')->insert([
+             'school_id' =>1,
+              'subject'=>'English'
+          ]);
+          
+          DB::table('school__subjects')->insert([
+             'school_id'=>1,
+              'subject'=>'Maths'
+          ]);
+          
+          DB::table('school__subjects')->insert([
+              'school_id'=>1,
+              'subject'=>'Natural Science'
+          ]);
+          
+          DB::table('school__subjects')->insert([
+              'school_id'=>1,
+              'subject'=>'French'
+          ]);
+          
+          DB::table('school__subjects')->insert([
+              'school_id'=>1,
+              'subject'=>'Creative Arts'
+          ]);
+          
+          DB::table('school__subjects')->insert([
+              'school_id'=>1,
+              'subject'=>'Writing'
+          ]);
+          
+          DB::table('school__subjects')->insert([
+              'school_id'=>1,
+              'subject'=>'ICT'
+          ]);
+          
+          DB::table('school__subjects')->insert([
+              'school_id'=>1,
+              'subject'=>'RME'
+          ]);
+          
     }
 }

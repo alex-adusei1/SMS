@@ -18,9 +18,11 @@ Route::get('/student',function(){
     return "Student";
 });
 
-Route::get('/teacher',function(){
-  return view('admin.teacher.dashboard');
-})->middleware('auth');
+//Route::get('/teacher',function(){
+//  return view('admin.teacher.dashboard');
+//})->middleware('auth');
+
+Route::get('/teacher','TeacherController@index')->name('teacher_index')->middleware('auth');
 
 Route::get('/teacher-download','TeacherController@download')->name('teacher_download')->middleware('auth');
 
@@ -35,9 +37,9 @@ Route::get('/lower_primary','SchoolController@lowerPrimary')->name('lower')->mid
 
 Route::get('/upper_primary','SchoolController@upperPrimary')->name('upper')->middleware('auth');
 
-Route::get('/jhs','SchoolController@jhs')->name('jhs')->middleware('auth');
+Route::get('/jhs/','SchoolController@jhs')->name('jhs')->middleware('auth');
 
-Route::get('/shs','SchoolController@shs')->name('shs')->middleware('auth');
+Route::get('/shs/','SchoolController@shs')->name('shs')->middleware('auth');
 
 Route::get('/tertiary','SchoolController@tertiary')->name('tertiary')->middleware('auth');
 

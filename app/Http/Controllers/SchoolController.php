@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use Auth;
 
 class SchoolController extends Controller {
@@ -77,12 +76,17 @@ class SchoolController extends Controller {
         //
     }
 
-    public function lowerPrimary() {
-        //pull data relating to lowerprimary
-        if (Auth::user()->username === "admin") {
-            return view('admin.home');
+    /**
+     * 
+     * @param Request $request
+     * @return type
+     */
+    public function lowerPrimary(Request $request) {
+        $this->setSession("lower");
+        if ($this->readSession($request) === "lower") {
+            return view('lower.adminMgmt.home');
         } else {
-            abort('404');
+            return redirect('/');
         }
     }
 
@@ -114,6 +118,14 @@ class SchoolController extends Controller {
             return view('admin.home');
         }
         abort('404');
+    }
+
+    static public function setSession($type) {
+        session(['school' => $type]);
+    }
+
+    static public function readSession(Request $request) {
+        return $request->session()->get('school');
     }
 
 }
