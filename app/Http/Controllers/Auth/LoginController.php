@@ -24,7 +24,7 @@ use AuthenticatesUsers;
      *
      * @var string
      */
-     
+
     protected $username = "name";
     protected $redirectTo = '/home';
 

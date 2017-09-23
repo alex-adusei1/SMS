@@ -8,6 +8,6 @@ class Teacher_File extends Model
 {
     //
      protected $fillable = [
-        'teacher_id','cv','certificate'
+        'teacher_id','path'
     ];
 }

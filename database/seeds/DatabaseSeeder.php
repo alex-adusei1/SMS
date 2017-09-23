@@ -18,6 +18,16 @@ class DatabaseSeeder extends Seeder
             'name' => 'admin'
         ]);
         
+        DB::table('user_types')->insert([
+            'name'=>'teacher'
+        ]);
+        
+        DB::table('user_types')->insert([
+           'name'=>'parent' 
+        ]);
+                
+                
+        
         
         //seeder for users
         DB::table('users')->insert([
@@ -26,10 +36,47 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('admin@123'),
             'residential_address' => 'Accra',
             'mobile'=>'0244000000', 
-            'city'=>'dansoman', 
             'place_of_birth'=>'accra',
             'tribe'=>'Ga',
             'user_type_id'=>1
         ]);
+        
+        DB::table('schools')->insert([
+            'name'=>'Lower Primary School', 
+            'age_range'=>'Between 3 to 7',
+            'url'=>'lower'
+        ]);
+        
+         DB::table('schools')->insert([
+            'name'=>'Upper Primary School', 
+            'age_range'=>'Between 8 to 12',
+             'url'=>'upper'
+        ]);
+         
+          DB::table('schools')->insert([
+            'name'=>'Junior High School', 
+            'age_range'=>'Between 12 to 15',
+             'url'=>'jhs'
+        ]);
+          
+         DB::table('schools')->insert([
+            'name'=>'Senior High School', 
+            'age_range'=>'Between 15 to 18',
+             'url'=>'shs'
+        ]);  
+         
+          DB::table('schools')->insert([
+            'name'=>'Tertiary Education', 
+            'age_range'=>'18 and above ',
+            'url'=>'tertiary'
+        ]);
+          
+          // seeding for classroom
+          DB::table('classrooms')->insert([
+             'name'=>'class 1',
+              'capacity'=>50,
+              'floor'=>'ground floor',
+              'location'=>'akoto block'
+          ]);
     }
 }

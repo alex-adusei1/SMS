@@ -168,17 +168,32 @@
       </div>
       <div class="row p-a">
         <div class="col-sm-5">
-          <select class="custom-select w-sm inline v-middle">
-            <option value="0">Bulk action</option>
+          {{-- <select class="custom-select w-sm inline v-middle">
+            <option value="">Bulk action</option>
+            <option value="4">Import Excel</option>
+            <option value="localhost/sms/public">Dowload Excel format</option>
             <option value="1">Delete selected</option>
             <option value="2">Bulk email</option>
             <option value="3">Bulk sms</option>
             <option value="4">Export to PDF</option>
             <option value="5">Export to Excel</option>
-          </select>
-          <button class="btn white">Apply</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </select> --}}
+          <div class="dropdown pull-left m-r">
+            <div class="dropdown-menu pos-stc inline success" role="menu">
+              <div class="dropdown-item dropdown-submenu">
+                <a tabindex="-1" href="#"><i class="fa-fa-gear"></i> Actions</a>
+                <div class="dropdown-menu success" role="menu">
+                  <a class="dropdown-item" href="#" data-toggle="modal" data-target="#m-a-a" data-ui-toggle-class="flip-y" data-ui-target="#animate">Add Teacher</a>
+                  <a class="dropdown-item" href="{{route('teacher_download')}}">Dowload Format</a>
+                  <a class="dropdown-item" href="#" data-toggle="modal" data-target="#m-d" data-ui-toggle-class="flip-y" data-ui-target="#animate">Upload Excel</a>
+                  <a class="dropdown-item" href="{{route('teacher_export')}}">Export Excel</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          {{-- <button class="btn white">Apply</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; --}}
             	{{-- <button class="btn white" data-toggle="modal" data-target="#m-a-a" data-ui-toggle-class="flip-y" data-ui-target="#animate">Flip y</button> --}}
-          <button class="md-btn md-fab m-b-xs pink" data-toggle="modal" data-target="#m-a-a" data-ui-toggle-class="flip-y" data-ui-target="#animate" title="Add Teacher"><i class="fa fa-plus"></i></button>
+          {{-- <a class="md-btn md-fab m-b-xs pink" data-toggle="modal" data-target="#m-a-a" data-ui-toggle-class="flip-y" data-ui-target="#animate" title="Add Teacher"><i class="fa fa-plus">  </i></a> --}}
           {{-- <button class="md-btn md-fab m-b-sm indigo"><i class="fa fa-search"></i></button>
           <button class="md-btn md-fab m-b-sm pink"><i class="fa fa-phone"></i></button>
           <button class="md-btn md-fab m-b-sm blue"><i class="fa fa-cloud-upload"></i></button>
@@ -301,7 +316,11 @@
         	<h5 class="modal-title">Add Teacher</h5>
         </div>
         <div class="modal-body text-center p-lg">
-
+          <form class="" action="{{route('teacher_import')}}" method="post" enctype="multipart/form-data">
+            {{csrf_field()}}
+            <input type="file" name="excel_file" class="form-control ">
+            <button type="submit"  class="btn success btn-danger form-control"> Upload File </button>
+          </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">No</button>
@@ -321,7 +340,8 @@
         </div>
         <div class="modal-body text-center p-lg">
           <div class="box-body">
-              <form data-ui-jp="parsley" id="form">
+              <form data-ui-jp="parsley" id="form" action="{{route('teachers.store')}}" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="_token" value="{{csrf_token()}}">
                 <div id="rootwizard" data-ui-jp="bootstrapWizard" data-ui-options="{
                   onTabClick: function(tab, navigation, index) {
                     return false;
@@ -329,9 +349,9 @@
                   onNext: function(tab, navigation, index) {
                     var instance = $('#form').parsley();
                     instance.validate();
-                    if(!instance.isValid()) {
+                    {{-- if(!instance.isValid()) {
                       return false;
-                    }
+                    } --}}
                   }
                   }">
                   <ul class="nav nav-pills clearfix m-b">
@@ -348,7 +368,7 @@
                               <div class="input-group-addon">
                                 First Name
                               </div>
-                              <input type="text" class="form-control" required>
+                              <input type="text" name="first_name" class="form-control" placeholder="Eg Ewards" required>
                             </div>
                           </div>
                           <div class="form-group col-sm-6">
@@ -356,7 +376,7 @@
                               <div class="input-group-addon">
                                 Last Name
                               </div>
-                              <input type="text" class="form-control" required>
+                              <input type="text" class="form-control" name="last_name" placeholder="Eg Addo" required>
                             </div>
                           </div>
                         </div>
@@ -367,7 +387,7 @@
                               <div class="input-group-addon">
                                 Username
                               </div>
-                              <input type="text" class="form-control" required>
+                              <input type="text" class="form-control" name="username" placeholder="Eg user_1" required>
                             </div>
                           </div>
                           <div class="form-group col-sm-6">
@@ -375,7 +395,7 @@
                               <div class="input-group-addon">
                                 Email
                               </div>
-                              <input type="email" class="form-control" required>
+                              <input type="email" class="form-control" name="email" placeholder="Eg user@domain.com" required>
                             </div>
                           </div>
                         </div>
@@ -387,7 +407,7 @@
                               <div class="input-group-addon">
                                 Password
                               </div>
-                              <input type="password" class="form-control" required>
+                              <input type="password" class="form-control" name="password" placeholder="Your Password" required>
                             </div>
                           </div>
                           <div class="form-group col-sm-6">
@@ -395,7 +415,7 @@
                               <div class="input-group-addon">
                                 Confirm Password
                               </div>
-                              <input type="password" class="form-control" required>
+                              <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Your Password" required>
                             </div>
                           </div>
                         </div>
@@ -406,7 +426,7 @@
                               <div class="input-group-addon">
                                 Phone
                               </div>
-                              <input type="text" class="form-control" required>
+                              <input type="number" class="form-control" name="phone" placeholder="Eg 024100000"required>
                             </div>
                           </div>
                           <div class="form-group col-sm-6">
@@ -414,7 +434,7 @@
                               <div class="input-group-addon">
                                 Mobile
                               </div>
-                              <input type="text" class="form-control" required>
+                              <input type="number" class="form-control" name="mobile" placeholder="Eg 0201111111"required>
                             </div>
                           </div>
                         </div>
@@ -436,7 +456,7 @@
                               <div class="input-group-addon">
                                 DOB
                               </div>
-                              <input type="date" class="form-control" required>
+                              <input type="date" class="form-control" name="dob" placeholder="Eg 01/01/1987" required>
                             </div>
                           </div>
                         </div>
@@ -459,7 +479,7 @@
                               <div class="input-group-addon">
                                 Postal Addresss
                               </div>
-                              <input type="text" class="form-control" required>
+                              <input type="text" class="form-control" name="postal_address" placeholder="Eg P.O Box 111"required>
                             </div>
                           </div>
                         </div>
@@ -470,7 +490,7 @@
                               <div class="input-group-addon">
                                 Residential Adress
                               </div>
-                              <input type="text" class="form-control" required>
+                              <input type="text" class="form-control" name="residential_address" placeholder="Eg DC 7773"required>
                             </div>
                           </div>
                           <div class="form-group col-sm-6">
@@ -478,7 +498,7 @@
                               <div class="input-group-addon">
                                 Location
                               </div>
-                              <input type="text" class="form-control" required>
+                              <input type="text" class="form-control" name="location" placeholder="Eg Dansoman" required>
                             </div>
                           </div>
                         </div>
@@ -489,7 +509,7 @@
                               <div class="input-group-addon">
                                 Place Of Birth
                               </div>
-                              <input type="text" class="form-control" required>
+                              <input type="text" class="form-control" name="place_of_birth" placeholder="Eg Accra" required>
                             </div>
                           </div>
                           <div class="form-group col-sm-6">
@@ -497,30 +517,26 @@
                               <div class="input-group-addon">
                                 Tribe
                               </div>
-                              <input type="text" class="form-control" required>
+                              <input type="text" class="form-control" name="tribe" placeholder="Eg Ga" required>
                             </div>
                           </div>
                         </div>
-                        {{-- <div class="checkbox">
-                          <label class="ui-check">
-                            <input type="checkbox" name="check" checked required="true"><i></i> I agree to the <a href="#" class="text-info">Terms of Service</a>
-                          </label>
-                        </div> --}}
                       </div>
+
                       <div class="tab-pane" id="tab2">
                         <div class="row">
                           <div class="form-group col-sm-6">
                             <div class="input-group">
                               <div class="input-group-addon">
-                                Highest Education Level
+                                Current Educational Level
                               </div>
-                                <select class="form-control" name="gender">
-                                  <option value="male">Phd</option>
-                                  <option value="male">Masters</option>
-                                  <option value="female">Bsc</option>
-                                  <option value="female">HND</option>
-                                  <option value="male">Teachers Training</option>
-                                  <option value="female">SHS</option>
+                                <select class="form-control" name="current_edu_level">
+                                  <option value="Phd">Phd</option>
+                                  <option value="Masters">Masters</option>
+                                  <option value="BSc">Bsc</option>
+                                  <option value="HND">HND</option>
+                                  <option value="Teachers Training">Teachers Training</option>
+                                  <option value="SHS">SHS</option>
                                 </select>
                             </div>
                           </div>
@@ -529,31 +545,18 @@
                               <div class="input-group-addon">
                                 Year Graduated
                               </div>
-                              <input type="date" class="form-control" required>
+                              <input type="date" name="year_completed" class="form-control" required>
+                            </div>
+                          </div>
+                            <div class="form-group col-sm-6">
+                            <div class="input-group">
+                              <div class="input-group-addon">
+                                Course/Program
+                              </div>
+                              <input type="text" name="course" class="form-control" required>
                             </div>
                           </div>
                         </div>
-
-                        <div class="row">
-                          <div class="form-group col-sm-6">
-                            <div class="input-group">
-                              <div class="input-group-addon">
-                                Certificate
-                              </div>
-                              <input type="file" class="form-control" name="name" value="">
-                              {{-- <input type="text" class="form-control" required> --}}
-                            </div>
-                          </div>
-                          <div class="form-group col-sm-6">
-                            <div class="input-group">
-                              <div class="input-group-addon">
-                                Other Certificate
-                              </div>
-                              <input type="file" class="form-control" required>
-                            </div>
-                          </div>
-                        </div>
-
                       </div>
 
                       {{-- tab3 --}}
@@ -562,20 +565,20 @@
                           <div class="form-group col-sm-6">
                             <div class="input-group">
                               <div class="input-group-addon">
-                                Worked Before
+                                Start Date
                               </div>
-                              <select class="form-control" name="">
-                                <option value="yes">Yes</option>
-                                <option value="no">No</option>
-                              </select>
+                              <input type="date" class="form-control" name="date_employed" required>
                             </div>
                           </div>
+
                           <div class="form-group col-sm-6">
                             <div class="input-group">
                               <div class="input-group-addon">
-                                Name Of Institution
+                                Assign Class
                               </div>
-                              <input type="text" class="form-control" required>
+                              <select class="form-control" name="classroom_id">
+                                <option value="1">Class 1</option>
+                              </select>
                             </div>
                           </div>
                         </div>
@@ -583,45 +586,17 @@
                           <div class="form-group col-sm-6">
                             <div class="input-group">
                               <div class="input-group-addon">
-                                Years of Experence
+                                Years of Experience
                               </div>
-                              <select class="form-control" name="">
-                                <option value="yes">1-3</option>
-                                <option value="no">3-5</option>
-                                <option value="yes">5-10</option>
-                                <option value="no">10-15</option>
-                                <option value="yes">15-25</option>
-                                <option value="no">25-40</option>
+                              <select class="form-control" name="experiences">
+                                <option value="1-3">1-3</option>
+                                <option value="3-5">3-5</option>
+                                <option value="5-10">5-10</option>
+                                <option value="10-15">10-15</option>
+                                <option value="15-25">15-25</option>
+                                <option value="25-40">25-40</option>
                               </select>
                             </div>
-                          </div>
-
-                          <div class="form-group col-sm-6">
-                            <div class="input-group">
-                              <div class="input-group-addon">
-                                Location
-                              </div>
-                              <input type="text" class="form-control" required>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div class="row">
-                          <div class="form-group col-sm-6">
-                              <label class="control-label"> Strong Areas </label>
-
-                              <label class="checkbox-inline">
-                                <input type="checkbox" value="option1"> Maths
-                              </label>
-                              <label class="checkbox-inline">
-                                <input type="checkbox" value="option2"> English
-                              </label>
-                              <label class="checkbox-inline">
-                                <input type="checkbox" value="option3"> Science
-                              </label>
-                              {{-- <label class="checkbox-inline">
-                                <input type="checkbox" value="option1"> Science
-                              </label> --}}
                           </div>
 
                           <div class="form-group col-sm-6">
@@ -629,7 +604,7 @@
                               <div class="input-group-addon">
                                 CV
                               </div>
-                              <input type="file" class="form-control" required>
+                              <input type="file" class="form-control" name="cv" required>
                             </div>
                           </div>
                         </div>
@@ -642,6 +617,7 @@
                       </ul>
                   </div>
                 </div>
+                <button type="submit" class="form-control btn btn-success">Add Teacher</button>
               </form>
           </div>
         </div>
