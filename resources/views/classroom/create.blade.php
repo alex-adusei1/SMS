@@ -535,7 +535,7 @@
                 <a data-toggle="modal" data-target="#aside" class="navbar-item pull-left hidden-lg-up p-r m-a-0">
                   <i class="ion-navicon"></i>
                 </a>
-                <div class="navbar-item pull-left h5" id="pageTitle">Dashboard</div>
+                <div class="navbar-item pull-left h5" id="pageTitle">{{ $title }}</div>
                 <!-- nabar right -->
                 <ul class="nav navbar-nav pull-right">
                   <li class="nav-item dropdown pos-stc-xs">
@@ -642,7 +642,7 @@
         <div class="padding">
           <div>
             <span class="pull-right"><i class="fa fa-caret-up text-primary m-y-xs"></i></span>
-            <span class="text-muted l-h-1x"><i class="ion-university text-muted"></i></span>
+            <span class="text-muted l-h-1x"><i class="ion-ios-home text-muted"></i></span>
           </div>
           <div class="text-center">
              @if(count($classRoomObjects)>0)
@@ -673,7 +673,7 @@
                  foreach($classRoomObjects as $classObj){
                     $total += $classObj->capacity;
                  }
-                 echo "<h2> {$total} </h2>";
+                 echo "<h2>" . $total ."</h2>";
              ?>
            
             <p class="text-muted m-b-md">Total Classroom Capacity</p>
@@ -682,12 +682,12 @@
             </div>
           </div>
         </div>
-          </div>
+      </div>
 
           <!-- classroom -->
           <div class="row col-sm-12">
             <div class="col-sm-12 ">
-                <button class="btn btn-lg text-center btn.info" data-toggle="modal" data-target="#myModal">Add class</button>
+                <button class="btn btn-lg text-center btn-info" data-toggle="modal" data-target="#myModal">Add class</button>
             </div>
                 <!-- inline search class -->
               <!-- <div class="col-xs-6 col-sm-3 col-md-4">
@@ -722,7 +722,7 @@
                           <td>{{$classObj->floor}}</td>
                           <td>{{$classObj->location}}</td>
                           <td>
-                          <a href="#" class="btn btn-sm btn-success text-center" data-toggle="modal" data-target="#updateClassroomModal">edit</a>
+                          <a href="#" class="btn btn-sm btn-success text-center" data-toggle="modal" data-target="#updateClassroomModal" style="display:block;float:left;">edit</a>
                            
                          <form action="{{url('classroom/delete/'.$classObj->id)}}" method="POST">
                                     {{ csrf_field() }}

@@ -21,9 +21,10 @@ class ClassroomsController extends Controller
      */
     public function index()
     {
+        $title = "Classroom";
         $classRoomObjects = Classroom::all();
         // $classRoomObjects = Classroom::orderBy('id', 'asc')->paginate(2);
-        return view('classroom.create')->with('classRoomObjects',$classRoomObjects);
+        return view('classroom.create',['title'=> $title])->with('classRoomObjects',$classRoomObjects);
 
     }
 
