@@ -705,14 +705,15 @@
 
             {{-- show details --}}
             
-            <div class="row-col table-responsive">
+            <div class="row-col">
+            <div class="table-responsive">
               <table class=" table table-hover ">
                   <th>ID</th>
                   <th>Name</th>
                   <th>Capacity</th>
                   <th>Floor</th>
                   <th>Location</th>
-                  <th>Action</th>
+                  <th class="text-center">Action</th>
                   @if(count($classRoomObjects)>0)
                       @foreach($classRoomObjects as $classObj)
                         <tr>
@@ -756,8 +757,8 @@
                   
               </table>
 
+              </div>
             </div>
-
 
 
 
