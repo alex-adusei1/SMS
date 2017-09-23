@@ -29,3 +29,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Route::post('classroom/index/{id}', 'ClassroomsController@update');
 // Route::put('classroom/index/update/{id}', 'ClassroomsController@update');
 Route::get('/classroom','ClassroomsController@index');
+Route::delete('classroom/delete/{id}','ClassroomsController@destroy');

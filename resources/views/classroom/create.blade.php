@@ -648,7 +648,7 @@
              @if(count($classRoomObjects)>0)
                 <h2 class="text-center _600">{{$classRoomObjects->count()}}</h2>
              @else
-               <h2 class="text-center _600">000</h2>
+               <h2 class="text-center _600">0</h2>
              @endif
             
             <p class="text-muted m-b-md">Total Number Of Classroom</p>
@@ -665,7 +665,17 @@
             <span class="text-muted l-h-1x"><i class="ion-android-people text-muted"></i></span>
           </div>
           <div class="text-center">
-            <h2 class="text-center _600">300</h2>
+             
+             
+          {{-- pull and sum up the total classroom capacity  --}}
+             <?php 
+                  $total = 0;
+                 foreach($classRoomObjects as $classObj){
+                    $total += $classObj->capacity;
+                 }
+                 echo "<h2> {$total} </h2>";
+             ?>
+           
             <p class="text-muted m-b-md">Total Classroom Capacity</p>
             <div>
               <span data-ui-jp="sparkline" data-ui-options="[1,1,0,2,3,4,2,1,2,2], {type:'line', height:20, width: '60', lineWidth:1, valueSpots:{'0:':'#818a91'}, lineColor:'#818a91', spotColor:'#818a91', fillColor:'', highlightLineColor:'rgba(120,130,140,0.3)', spotRadius:0}" class="sparkline inline"></span>
