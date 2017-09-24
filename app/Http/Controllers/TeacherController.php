@@ -7,6 +7,7 @@ use App\User;
 use App\Teacher;
 use App\Teacher_File;
 use App\Classroom;
+use App\SchoolSubject;
 use League\Csv\Reader;
 
 class TeacherController extends Controller {
@@ -19,8 +20,9 @@ class TeacherController extends Controller {
     public function index(Request $request) {
         if (SchoolController::readSession($request) === "lower") {
             $teacher = User::where('user_type_id', 2)->orderBy('id', 'desc')->get();
-//            return $teacher;
-            return view('lower.adminMgmt.teacher.dashboard', compact('teacher'));
+            //get all the classroom
+            $classroom = Classroom::all();
+            return view('lower.adminMgmt.teacher.dashboard', compact('teacher','classroom'));
         }
     }
 
@@ -87,12 +89,11 @@ class TeacherController extends Controller {
         ]);
 
         $this->fileUpload($request->cv, $teacher->id);
-        if ($school_id === 1){
+        if ($school_id === 1) {
             return redirect('/teacher')->withErrors("Teacher " . $request->first_name . " " . $request->last_name . " was created");
         } else {
             return redirect('/');
         }
-        
     }
 
     /**
@@ -101,10 +102,19 @@ class TeacherController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id) {
-        $teacher = User::findOrFail($id)->where('id', $id)->first();
-        $teacher_classroom = Classroom::where('id', $teacher->teacher->classroom_id)->first();
-        return view('admin.teacher.detail', compact('teacher', 'teacher_classroom'));
+    public function show(Request $request, $id) {
+        if (SchoolController::readSession($request) === 'lower') {
+            $teacher = User::findOrFail($id)->where('id', $id)->first();
+            
+            $teacher_classroom = Classroom::where('id', $teacher->teacher['classroom_id'])->first();
+            
+            $school_subject = SchoolSubject::where('school_id',1)->orderBy('id','asc')->get();
+            
+            return view('lower.adminMgmt.teacher.detail', compact('teacher', 'teacher_classroom','school_subject'));
+            
+        } else {
+            return redirect('/');
+        }
     }
 
     /*     * ass

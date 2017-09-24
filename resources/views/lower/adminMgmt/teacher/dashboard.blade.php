@@ -10,7 +10,7 @@
                 <a data-toggle="modal" data-target="#aside" class="navbar-item pull-left hidden-lg-up p-r m-a-0">
                   <i class="ion-navicon"></i>
                 </a>
-                <div class="navbar-item pull-left h5" id="pageTitle">Teacher Module</div>
+                <div class="navbar-item pull-left h5" id="pageTitle">Lower Primary School Teacher Module</div>
                 <!-- nabar right -->
                 <ul class="nav navbar-nav pull-right">
                   <li class="nav-item dropdown pos-stc-xs">
@@ -116,11 +116,11 @@
         <div class="box p-a">
           <div class="pull-left m-r">
             <span class="avatar w-40 text-center rounded primary">
-              <span class="fa fa-dollar"></span>
+              <span class="fa fa-users"></span>
             </span>
           </div>
           <div class="clear">
-            <h4 class="m-a-0 text-md"><a href="#">219 <span class="text-sm">Teachers</span></a></h4>
+            <h4 class="m-a-0 text-md"><a href="#">{{count($teacher)}} <span class="text-sm">Teachers</span></a></h4>
             <small class="text-muted">Total Teachers</small>
           </div>
         </div>
@@ -224,9 +224,10 @@
               <th>Classroom</th>
               <th>Edu Level</th>
               <th>Expirence</th>
+              <th>Appointment</th>
               <th>Email</th>
               <th>Phone Number</th>
-              <th style="width:50px">Actions</th>
+              <th style="width:50px">Details</th>
             </tr>
           </thead>
           <tbody>
@@ -234,9 +235,15 @@
             <tr>
               <td><label class="ui-check m-a-0"><input type="checkbox" name="post[]"><i class="dark-white"></i></label></td>
               <td>{{$teacher->first_name ." ". $teacher->last_name}}</td>
-              <td>4c</td>
-              {{-- <td>{{$teacher->teacher->current_edu_level}}</td> --}}
-              {{-- <td>{{$teacher->teacher->experiences}}</td> --}}
+              <td>
+                @foreach ($classroom->where('id',$teacher->teacher->classroom_id) as $value)
+                  {{$value->name}}
+                @endforeach
+              </td>
+              {{-- getting it as an array --}}
+              <td>{{$teacher->teacher->current_edu_level}}</td>
+              <td>{{$teacher->teacher->experiences}}</td>
+              <td>{{$teacher->teacher->date_employed}}</td>
               <td>{{$teacher->email}}</td>
               <td>{{$teacher->phone}}</td>
               <td>

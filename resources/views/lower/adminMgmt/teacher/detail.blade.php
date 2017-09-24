@@ -115,7 +115,7 @@
     <div class="p-a-md">
       <div class="row m-t">
         <div class="col-sm-7">
-          <a href="#" class="pull-left m-r-md">
+          <a href="{{url('images/a2.jpg')}}" class="pull-left m-r-md">
             <span class="avatar w-96">
               <img src="{{url('images/a2.jpg')}}">
               <i class="on b-white"></i>
@@ -124,7 +124,16 @@
           <div class="clear m-b">
             <h4 class="m-a-0 m-b-sm">{{ $teacher->first_name ." ". $teacher->last_name}}</h4>
             <p class="text-muted"><span class="m-r">{{$teacher->teacher->current_edu_level ." ". $teacher->teacher->course}}</span></p>
-<!--            <div class="block clearfix m-b">
+
+              {{-- <div class="block clearfix m-b">
+                @foreach ($school_subject as $subj)
+                   <a href="" class="btn btn-icon btn-social rounded b-a btn-sm">
+                     <i class="fa fa-facebook"></i>
+                     <i class="">{{substr($subj->subject,0,1)}}</i>
+                   </a>
+              @endforeach
+                 </div> --}}
+         {{-- <div class="block clearfix m-b">
               <a href="" class="btn btn-icon btn-social rounded b-a btn-sm">
                 <i class="fa fa-facebook"></i>
                 <i class="fa fa-facebook indigo"></i>
@@ -141,17 +150,20 @@
                 <i class="fa fa-linkedin"></i>
                 <i class="fa fa-linkedin cyan-600"></i>
               </a>
-            </div>-->
+            </div> --}}
             <a href="#" class="btn btn-sm warn rounded success active m-b" data-ui-toggle-class="success">
               <span class="inline">Follow</span>
-              
-              <span class="none">{{ ucwords($teacher_classroom->name)}}</span>
+
+              <span class="none">{{ ucwords($teacher_classroom->name)}} Teacher</span>
             </a>
           </div>
         </div>
         <div class="col-sm-5">
           <p class="text-md profile-status">Subjects</p>
-          <button class="btn btn-sm rounded btn-outline b-success" data-toggle="collapse" data-target="#editor">Edit</button>
+          @foreach ($school_subject as $subj)
+            <button class="btn btn-sm rounded btn-outline b-success" data-toggle="collapse" data-target="#editor">{{$subj->subject}}</button>
+        @endforeach
+
           <div class="collapse box m-t-sm" id="editor">
             <textarea class="form-control no-border" rows="2" placeholder="Type something..."></textarea>
           </div>
@@ -159,7 +171,7 @@
       </div>
     </div>
   </div>
-  <div class="white bg b-b p-x">
+  {{-- <div class="white bg b-b p-x">
     <div class="row">
       <div class="col-sm-6 push-sm-6">
         <div class="p-y text-center text-sm-right">
@@ -196,11 +208,11 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="padding">
+  </div> --}}
+  {{-- <div class="padding">
     <div class="row">
       <div class="col-sm-8 col-lg-9">
-        <div class="tab-content">      
+        <div class="tab-content">
           <div class="tab-pane p-v-sm active" id="tab_1">
             <div class="streamline m-b">
               <div class="sl-item">
@@ -651,7 +663,7 @@
                 </div>
               </li>
               <li class="list-item">
-                <div class="list-body">                   
+                <div class="list-body">
                   <p><a href="#" class="text-info">@Josh Long</a> Vestibulum ullamcorper sodales nisi nec adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis</p>
                   <small class="block text-muted"><i class="fa fa-fw fa-clock-o"></i> 2 hours ago</small>
                 </div>
@@ -661,7 +673,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> --}}
 
 <!-- ############ PAGE END-->
 

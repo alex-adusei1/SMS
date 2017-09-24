@@ -11,7 +11,7 @@ class Teacher extends Model
       'user_id','classroom_id','date_employed','current_edu_level','year_completed','experiences','course','school_id' 
     ];
     
-    public function users(){
+    public function user(){
         return $this->belongsTo('App\User');
     }
     
