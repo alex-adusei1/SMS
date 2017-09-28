@@ -687,7 +687,8 @@
           <!-- classroom -->
           <div class="row col-sm-12">
             <div class="col-sm-12 ">
-                <button class="btn btn-lg text-center btn-info" data-toggle="modal" data-target="#myModal">Add class</button>
+                <button class="btn btn-lg text-center btn-info" data-toggle="modal" data-target="#myModal">Create Class</button>
+                <input type="text" placeholder="Type in to search: class name, floor, location" style="width:500px;height:50px" id="putty">
             </div>
                 <!-- inline search class -->
               <!-- <div class="col-xs-6 col-sm-3 col-md-4">
@@ -707,15 +708,15 @@
             
             <div class="row-col">
             <div class="table-responsive">
-              <table class=" table table-hover ">
+              <table class=" table table-hover">
                   <th>ID</th>
-                  <th>Name</th>
+                  <th>Class Name</th>
                   <th>Capacity</th>
                   <th>Floor</th>
                   <th>Location</th>
-                  <th class="text-center">Action</th>
+                  <th>Action</th>
                   @if(count($classRoomObjects)>0)
-                      @foreach($classRoomObjects as $classObj)
+                      @foreach($classRoomObjects_pag as $classObj)
                         <tr>
                           <td>{{$classObj->id}}</td>
                           <td>{{$classObj->name}}</td>
@@ -723,14 +724,14 @@
                           <td>{{$classObj->floor}}</td>
                           <td>{{$classObj->location}}</td>
                           <td>
-                          <a href="#" class="btn btn-sm btn-success text-center" data-toggle="modal" data-target="#updateClassroomModal" style="display:block;float:left;">edit</a>
+                          <a href="#" class="btn btn-sm btn-success text-center" data-toggle="modal" data-target="#updateClassroomModal" style="display:block;float:left; margin-right:5px;">edit</a>
                            
                          <form action="{{url('classroom/delete/'.$classObj->id)}}" method="POST">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
                                     <input type="hidden" name="_method" value="DELETE">
                                      
-                                    <button type="submit" class="btn btn-danger btn-sm pull-right">clear</button>
+                                    <button type="submit" class="btn btn-danger btn-sm">clear</button>
                             </form>
 
                 
@@ -738,26 +739,33 @@
 
                         </tr>
                       @endforeach
-                             {{--set pagination when dispay reaches 10 --}}
-                           {{-- {{ $classRoomObjects->links()}} --}}
-                       
+                            
+                        
 
+                       {{-- no data found in the database table--}}
                     @else
-                        <td>null</td>
-                        <td>null</td>
-                        <td>null</td>
-                        <td>null</td>
-                        <td>null</td>
-                        <td>
-                        {{-- <a href="#" class="btn btn-sm btn-success">edit</a>
-                        <a href="#" class="btn btn-sm btn-danger">delete</a> --}}
-                        </td>
+                       <tr> 
+                          <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                       
+                       </tr>
                         
                   @endif
                   
               </table>
 
               </div>
+ {{--set pagination when dispay reaches 10 
+                 validate if data exists 
+                     then set pagination --}}
+                @if(count($classRoomObjects)>0)
+                    
+                     <div><span class="pull-right">{{ $classRoomObjects_pag->links()}}</span></div>
+                 @endif 
             </div>
 
 
@@ -807,7 +815,7 @@
 
             {{-- Modal edit goes here --}}
             
-         @if(count($classRoomObjects)>0)
+         
 
         
             <div class="modal fade" id="updateClassroomModal" role="dialog">
@@ -818,7 +826,7 @@
                     <h4 class="modal-title">Update Classroom </h4>
                   </div>
                   <div class="modal-body">
-                  <form action="{{ url('classroom/update/') }}" method="POST">
+                  <form action="{{ url('classroom/update/$classRoomObjects->id') }}" method="POST">
                       {{ csrf_field() }}
                       {{ method_field('PUT') }}
                       <div class="form-group">
@@ -851,7 +859,8 @@
                 </div>
               </div>
             </div>
-          @endif
+         
+          
 
           <!-- <div class="col-xs-6 col-sm-3 b-r b-b">
         <div class="padding">
@@ -1817,5 +1826,22 @@
 
 <!-- ############ LAYOUT END-->
   </div>
+
+  {{-- <script> --}}
+      {{-- $(document).ready(function(){
+          alert ('ok');
+      });
+      function getClassDetails(classname){
+        $.ajax(
+          type : 'GET',
+          url : "{{url(classroom/getclass)}}",
+          datatype : 'json';
+          data : {classname:name},
+          success:function(data){
+            console.log(data);
+          }
+        );
+      } --}}
+  {{-- </script> --}}
 @endsection
 

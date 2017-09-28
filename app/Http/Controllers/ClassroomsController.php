@@ -23,8 +23,8 @@ class ClassroomsController extends Controller
     {
         $title = "Classroom";
         $classRoomObjects = Classroom::all();
-        // $classRoomObjects = Classroom::orderBy('id', 'asc')->paginate(2);
-        return view('classroom.create',['title'=> $title])->with('classRoomObjects',$classRoomObjects);
+        $classRoomObjects_pag = Classroom::orderBy('id', 'asc')->paginate(3);//paginate
+        return view('classroom.create',['title'=> $title,'classRoomObjects_pag'=>$classRoomObjects_pag])->with('classRoomObjects',$classRoomObjects);
 
     }
 
@@ -117,5 +117,10 @@ class ClassroomsController extends Controller
          $classRoomObjects->delete();
          //redirect
        return redirect('/classroom')->with('success','Classroom deleted');
+    }
+
+    //load class
+    public function loadclass(){
+        return 'hi';
     }
 }
