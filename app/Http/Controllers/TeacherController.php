@@ -8,7 +8,8 @@ use App\Teacher;
 use App\Teacher_File;
 use App\Classroom;
 use App\SchoolSubject;
-use League\Csv\Reader;
+use Illuminate\Support\Facades\Input;
+use Excel;
 
 class TeacherController extends Controller {
 
@@ -17,12 +18,13 @@ class TeacherController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function index(Request $request) {
         if (SchoolController::readSession($request) === "lower") {
             $teacher = User::where('user_type_id', 2)->orderBy('id', 'desc')->get();
             //get all the classroom
             $classroom = Classroom::all();
-            return view('lower.adminMgmt.teacher.dashboard', compact('teacher','classroom'));
+            return view('lower.adminMgmt.teacher.dashboard', compact('teacher', 'classroom'));
         }
     }
 
@@ -105,13 +107,12 @@ class TeacherController extends Controller {
     public function show(Request $request, $id) {
         if (SchoolController::readSession($request) === 'lower') {
             $teacher = User::findOrFail($id)->where('id', $id)->first();
-            
+
             $teacher_classroom = Classroom::where('id', $teacher->teacher['classroom_id'])->first();
-            
-            $school_subject = SchoolSubject::where('school_id',1)->orderBy('id','asc')->get();
-            
-            return view('lower.adminMgmt.teacher.detail', compact('teacher', 'teacher_classroom','school_subject'));
-            
+
+            $school_subject = SchoolSubject::where('school_id', 1)->orderBy('id', 'asc')->get();
+
+            return view('lower.adminMgmt.teacher.detail', compact('teacher', 'teacher_classroom', 'school_subject'));
         } else {
             return redirect('/');
         }
@@ -146,7 +147,8 @@ class TeacherController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        //
+        // we will set it to not active so that we still get teachers records even if there are not in the working there. 
+        // in that way we can roll them back on..
     }
 
     /**
@@ -159,12 +161,19 @@ class TeacherController extends Controller {
         return "something to download";
     }
 
-    public function importcsv() {
-        return "somethin here";
+    public function importcsv(Request $request) {
+        if (SchoolController::readSession($request) === "lower") {
+            
+            return redirect('/teacher');
+        }
+        return redirect('/');
     }
 
-    public function exportcsv() {
-        return "we are exporting csv";
+    public function exportcsv(Request $request) {
+        if (SchoolController::readSession($request) === "lower") {
+            return redirect('/teacher');
+        }
+        return redirect('/');
     }
 
     protected function fileUpload($file, $teacher_id) {

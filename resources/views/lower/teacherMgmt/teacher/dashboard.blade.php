@@ -305,13 +305,12 @@
         <div class="modal-body text-center p-lg">
           <form class="" action="{{route('teacher_import')}}" method="post" enctype="multipart/form-data">
             {{csrf_field()}}
-            <input type="file" name="excel_file" class="form-control ">
-            <button type="submit"  class="btn success btn-danger form-control"> Upload File </button>
+            <input type="file" name="excel_file" class="form-control" required>
+            <button type="submit" class="btn success btn-danger form-control"> Upload File </button>
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">No</button>
-          <button type="button" class="btn danger p-x-md" data-dismiss="modal">Yes</button>
+          <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">Cancel</button>
         </div>
       </div><!-- /.modal-content -->
     </div>
