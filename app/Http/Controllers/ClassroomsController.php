@@ -54,18 +54,29 @@ class ClassroomsController extends Controller
             'class_location'=>'required',
        ]);
        
-       
-       //create post
-        $add_class_field = new Classroom;
-        $add_class_field->name =$request->input('class_name');
-        $add_class_field->capacity = $request->input('class_capacity');
-        $add_class_field->floor = $request->input('class_floor');
+           //check for dupicates
+           $classNameExist = Classroom::where('name', '=', $request->input('class_name'))->get();
+
+           //laravel eloquent output data from db using collections
+           //so this verify if the collections contain data or using isEmpty()
+
+           if(!$classNameExist->isEmpty())
+           {
+              return redirect('/classroom')->with('error','Classroom Already Exist');
+           }
+           else{
+               //create post
+         $add_class_field = new Classroom;
+         $add_class_field->name =$request->input('class_name');
+         $add_class_field->capacity = $request->input('class_capacity');
+         $add_class_field->floor = $request->input('class_floor');
         $add_class_field->location = $request->input('class_location');
         $add_class_field->save();
      
-       //redirect
-       return redirect('/classroom')->with('success','Classroom Created');
-       
+        //redirect
+        return redirect('/classroom')->with('success','Classroom Created');
+           }
+      
 
     }
 
@@ -78,7 +89,10 @@ class ClassroomsController extends Controller
     public function show($id)
     {
         //
-    }
+         $classRoomObjects = Classroom::find($id);
+         return view('classroom.edit')->with('classobj',$classRoomObjects);
+        
+     }
 
     /**
      * Show the form for editing the specified resource.
@@ -100,9 +114,41 @@ class ClassroomsController extends Controller
      */
     public function update(Request $request, $id)
     {
-       $classRoomObjects = Classroom::find($id);
-        // return view('classroom.create');
-        return 'update';
+        //validating input field 
+         $this->validate($request, [
+             'class_name'=>'required',
+             'class_capacity'=>'required',
+             'class_floor'=>'required',
+             'class_location'=>'required',
+    ]);
+       
+           //check for dupicates
+           $classNameExist = Classroom::where('name', '=', $request->input('class_name'))->get();
+           
+        //laravel eloquent output data from db using collections
+        //so this verify if the collections contain data or using isEmpty()
+
+        if(!$classNameExist->isEmpty())
+        {
+            return redirect('/classroom')->with('error','Classroom Already Exist');
+        }
+        else{
+       
+        //create post
+            $update_class_field = Classroom::find($id);
+
+            $update_class_field->name =$request->input('class_name');
+            $update_class_field->capacity = $request->input('class_capacity');
+            $update_class_field->floor = $request->input('class_floor');
+            $update_class_field->location = $request->input('class_location');
+            $update_class_field->save();
+        
+        //redirect
+            return redirect('/classroom')->with('success','Classroom updated');
+        
+       }
+       
+       
     }
 
     /**

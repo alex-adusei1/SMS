@@ -724,7 +724,7 @@
                           <td>{{$classObj->floor}}</td>
                           <td>{{$classObj->location}}</td>
                           <td>
-                          <a href="#" class="btn btn-sm btn-success text-center" data-toggle="modal" data-target="#updateClassroomModal" style="display:block;float:left; margin-right:5px;">edit</a>
+                          <a href="{{url('classroom/edit/'.$classObj->id)}}" class="btn btn-sm btn-success text-center" style="display:block;float:left; margin-right:5px;">edit</a>
                            
                          <form action="{{url('classroom/delete/'.$classObj->id)}}" method="POST">
                                     {{ csrf_field() }}

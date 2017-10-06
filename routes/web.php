@@ -31,5 +31,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/classroom','ClassroomsController@index')->middleware('auth');
 Route::post('/classroom/store','ClassroomsController@store')->middleware('auth');
 Route::delete('classroom/delete/{id}','ClassroomsController@destroy')->middleware('auth');
+Route::get('classroom/edit/{id}','ClassroomsController@show')->middleware('auth');
+
 Route::put('classroom/update/{id}', 'ClassroomsController@update')->middleware('auth');
 Route::get('classroom/getclass', 'ClassroomsController@loadclass')->middleware('auth');
