@@ -123,16 +123,16 @@ class ClassroomsController extends Controller
     ]);
        
            //check for dupicates
-           $classNameExist = Classroom::where('name', '=', $request->input('class_name'))->get();
+           //$classNameExist = Classroom::where('name', '=', $request->input('class_name'))->get();
            
         //laravel eloquent output data from db using collections
         //so this verify if the collections contain data or using isEmpty()
 
-        if(!$classNameExist->isEmpty())
-        {
-            return redirect('/classroom')->with('error','Classroom Already Exist');
-        }
-        else{
+        // if(!$classNameExist->isEmpty())
+        // {
+        //     return redirect('/classroom')->with('error','Classroom Already Exist');
+        // }
+        // else{
        
         //create post
             $update_class_field = Classroom::find($id);
@@ -146,7 +146,7 @@ class ClassroomsController extends Controller
         //redirect
             return redirect('/classroom')->with('success','Classroom updated');
         
-       }
+       
        
        
     }
